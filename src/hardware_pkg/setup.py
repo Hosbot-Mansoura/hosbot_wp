@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            "motors_node = hardware_pkg.motors_node.py:main"
+            "motors_node = hardware_pkg.motors_node:main"
         ],
     },
 )
