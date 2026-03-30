@@ -1,75 +1,76 @@
 #!/usr/bin/env python3
-
+# To install main library for this node
+#  sudo apt update
+#  sudo apt install python3-gpiozero
+# '
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-import RPi.GPIO as GPIO
+from gpiozero import PWMOutputDevice, DigitalOutputDevice
 
 class MotorsNode(Node):
     def __init__(self):
-        node_name = "motors_node" # Define node name
+        node_name = "motors_node" 
         super().__init__(node_name)
         #### [ DECLARE MAIN PARAMETERS ] ####
-        self.declare_parameter('wheel_base', 0.3) # All distance in meters
+        self.declare_parameter('wheel_base', 0.3) # This in meters
         self.declare_parameter('max_speed' , 1.0)
-        self.wheel_base = self.get_parameter('wheel_base').value
+        self.wheel_base = self.get_parameter('wheel_base').value # Distance between wheels
         self.max_speed = self.get_parameter('max_speed').value
-        #### [ SUBSCRIBE TO COMMANDS CHANNEL ] ####
-        self.subscription = self.create_subscription(Twist,self.motor_cmd,10)
+        #### [ SUBSCRIBE TO COMMANDS CHANNEL (cmd_vel) ] ####
+        self.subscription = self.create_subscription(Twist,'/cmd_vel',self.cmd_to_speed,10)
         #### [ MOTOR PINS ] ####
-        self.Left_DIR = 17
-        self.Right_DIR = 23
-        self.Left_PWM = 18
-        self.Right_PWM = 24
-        #### [ MOTOR PINS SETUP ] ####
-        GPIO.setup(self.Left_DIR , GPIO.output)
-        GPIO.setup(self.Right_DIR , GPIO.output)
-        GPIO.setup(self.Left_PWM , GPIO.output)
-        GPIO.setup(self.Right_PWM , GPIO.output)
-        #### [ INITIAL MOTORS VALUES ] ####
-        self.pwm_left = GPIO.PWM(self.Left_PWM,1000)
-        self.pwm_right = GPIO.PWM(self.Right_PWM , 1000)
-        self.pwm_left.start(0)
-        self.pwm_right.start(0)
+        self.Left_DIR_PIN = DigitalOutputDevice(17)
+        self.Left_PWM_PIN = PWMOutputDevice(18)
+        self.Right_DIR_PIN = DigitalOutputDevice(23)
+        self.Right_PWM_PIN = PWMOutputDevice(24)
+
         self.get_logger().info("Motors has been initialized successfully")
 
 
+    def cmd_to_speed(self, msg:Twist):
+        linear_speed = msg.linear.x
+        angle = msg.angular.z
+        l_wheel_vel = linear_speed - ((angle * self.wheel_base) / 2)
+        r_wheel_vel = linear_speed + ((angle * self.wheel_base) / 2)
+        self.set_motor_speed(l_wheel_vel , r_wheel_vel)
 
-    def motor_cmd(self, msg:Twist):
-        linear = msg.linear
-        angular = msg.angular
-        v_left = linear - (angular * (self.wheel_base / 2.0))
-        v_right = linear + (angular * (self.wheel_base / 2.0))
-        self.set_motor_speed(self , v_left , v_right)
+    def set_motor_speed(self, vLeft, vRight):
+        ##### [ CLIP CMD SPEED ] #####
+        vLeft_clipped = max(min(vLeft,self.max_speed) , -self.max_speed)
+        vRight_clipped = max(min(vRight,self.max_speed) , -self.max_speed)
+       
+        ##### [ NORMALIZE TO RANGE [0-1] ] #####
+        vLeft_norm = vLeft_clipped / self.max_speed
+        vRight_norm = vRight_clipped / self.max_speed
         
+        ##### [ MOTORS SPEEDS ] #####
+        # LEFT MOTOR
+        self.Left_DIR_PIN.on() if vLeft_clipped >= 0 else self.Left_DIR_PIN.off()
+        self.Left_PWM_PIN.value = vLeft_norm
+        # RIGHT MOTOR
+        self.Right_DIR_PIN.on() if vRight_clipped >= 0 else self.Right_DIR_PIN.off()
+        self.Right_PWM_PIN.value = vRight_norm
+    
+    def stop(self):
+        self.Left_DIR_PIN.off()
+        self.Left_PWM_PIN.value = 0
+        self.Right_DIR_PIN.off()
+        self.Right_PWM_PIN.value = 0
 
-    def set_motor_speed(self , left , right):
-        ##### [ SET MOTOR DIRECTION ] #####
-        left_dir = GPIO.HIGH if left >=0 else GPIO.LOW
-        right_dir = GPIO.HIGH if right >=0 else GPIO.LOW
-        GPIO.output(self.Left_DIR , left_dir)
-        GPIO.output(self.Right_DIR , right_dir)
-        ##### [ SET MOTOR SPEED ] #####
-        left_speed = self.speed_pwm_converter(left)
-        right_speed = self.speed_pwm_converter(right)
-        self.pwm_left.ChangeDutyCycle(abs(left_speed))
-        self.pwm_right.ChangeDutyCycle(abs(right_speed))
-        
-
-    def speed_pwm_converter(self,speed):
-        speed = max(min(speed,self.max_speed), -self.max_speed)
-        pwm_value = (speed / self.max_speed) * 100.0
-        return pwm_value
 
 
 def main(arg=None):
     rclpy.init(args=arg)
-    # To do node logic
     node = MotorsNode()
-    rclpy.spin(node)
-    node.destroy_node()
-    GPIO.cleanup()
-    rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.stop()
+        node.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == "__main__":
     main()

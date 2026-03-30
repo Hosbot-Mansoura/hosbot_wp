@@ -5,7 +5,7 @@ from launch_ros.actions import Node
 import xacro
 
 def generate_launch_description():
-        urdf_file_name = "robot.urdf.xacro"
+    urdf_file_name = "robot.urdf.xacro"
     package_name = "robot_urdf"
 
     robot_description_file_path = os.path.join(get_package_share_directory(package_name),"urdf",urdf_file_name)

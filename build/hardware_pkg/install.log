@@ -1,6 +1,8 @@
 /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/__init__.py
+/home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/manual_motors_control_node.py
 /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/motors_node.py
 /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/__pycache__/__init__.cpython-312.pyc
+/home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/__pycache__/manual_motors_control_node.cpython-312.pyc
 /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/__pycache__/motors_node.cpython-312.pyc
 /home/youssef/hosbot_wp/install/hardware_pkg/share/ament_index/resource_index/packages/hardware_pkg
 /home/youssef/hosbot_wp/install/hardware_pkg/share/hardware_pkg/package.xml
