@@ -1,0 +1,37 @@
+[3.919s] Invoking command in '/home/youssef/hosbot_wp/src/hardware_pkg': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/youssef/hosbot_wp/build/hardware_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/hardware_pkg build --build-base /home/youssef/hosbot_wp/build/hardware_pkg/build install --record /home/youssef/hosbot_wp/build/hardware_pkg/install.log --single-version-externally-managed install_data
+[4.176s] running egg_info
+[4.177s] creating ../../build/hardware_pkg/hardware_pkg.egg-info
+[4.195s] writing ../../build/hardware_pkg/hardware_pkg.egg-info/PKG-INFO
+[4.195s] writing dependency_links to ../../build/hardware_pkg/hardware_pkg.egg-info/dependency_links.txt
+[4.196s] writing entry points to ../../build/hardware_pkg/hardware_pkg.egg-info/entry_points.txt
+[4.196s] writing requirements to ../../build/hardware_pkg/hardware_pkg.egg-info/requires.txt
+[4.196s] writing top-level names to ../../build/hardware_pkg/hardware_pkg.egg-info/top_level.txt
+[4.196s] writing manifest file '../../build/hardware_pkg/hardware_pkg.egg-info/SOURCES.txt'
+[4.233s] reading manifest file '../../build/hardware_pkg/hardware_pkg.egg-info/SOURCES.txt'
+[4.234s] writing manifest file '../../build/hardware_pkg/hardware_pkg.egg-info/SOURCES.txt'
+[4.234s] running build
+[4.234s] running build_py
+[4.234s] creating /home/youssef/hosbot_wp/build/hardware_pkg/build
+[4.235s] creating /home/youssef/hosbot_wp/build/hardware_pkg/build/lib
+[4.235s] creating /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg
+[4.235s] copying hardware_pkg/__init__.py -> /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg
+[4.235s] copying hardware_pkg/motors_node.py -> /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg
+[4.235s] running install
+[4.240s] running install_lib
+[4.259s] creating /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg
+[4.260s] copying /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg/__init__.py -> /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg
+[4.260s] copying /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg/motors_node.py -> /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg
+[4.260s] byte-compiling /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/__init__.py to __init__.cpython-312.pyc
+[4.260s] byte-compiling /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/motors_node.py to motors_node.cpython-312.pyc
+[4.261s] running install_data
+[4.261s] creating /home/youssef/hosbot_wp/install/hardware_pkg/share/ament_index
+[4.261s] creating /home/youssef/hosbot_wp/install/hardware_pkg/share/ament_index/resource_index
+[4.261s] creating /home/youssef/hosbot_wp/install/hardware_pkg/share/ament_index/resource_index/packages
+[4.262s] copying resource/hardware_pkg -> /home/youssef/hosbot_wp/install/hardware_pkg/share/ament_index/resource_index/packages
+[4.262s] copying package.xml -> /home/youssef/hosbot_wp/install/hardware_pkg/share/hardware_pkg
+[4.262s] running install_egg_info
+[4.281s] Copying ../../build/hardware_pkg/hardware_pkg.egg-info to /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg-0.0.0-py3.12.egg-info
+[4.282s] running install_scripts
+[4.408s] Installing motors_node script to /home/youssef/hosbot_wp/install/hardware_pkg/lib/hardware_pkg
+[4.408s] writing list of installed files to '/home/youssef/hosbot_wp/build/hardware_pkg/install.log'
+[4.441s] Invoked command in '/home/youssef/hosbot_wp/src/hardware_pkg' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/youssef/hosbot_wp/build/hardware_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/hardware_pkg build --build-base /home/youssef/hosbot_wp/build/hardware_pkg/build install --record /home/youssef/hosbot_wp/build/hardware_pkg/install.log --single-version-externally-managed install_data

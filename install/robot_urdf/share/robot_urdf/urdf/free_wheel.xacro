@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="free_wheel" params="name xy">
+
+
+        <link name="${name}_link">
+            <visual>
+                <geometry>
+                    <sphere radius="0.016" />
+                </geometry>
+            </visual>
+            <collision>
+                <geometry>
+                    <sphere radius="0.016" />
+                </geometry>
+            </collision>
+
+            <inertial>
+                <mass value="0.01" />
+                <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5" />
+            </inertial>
+        </link>
+
+        <joint name="${name}_joint" type="fixed">
+            <parent link="robot_base_link" />
+            <child link="${name}_link" />
+            <origin xyz="${xy} -${robot_base_hight /2}" /> <!--  rpy="0 0 0.9599"-->
+        </joint>
+
+    </xacro:macro>
+</robot>

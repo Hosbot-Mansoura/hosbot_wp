@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="hosbot">
+
+    <!-- ROBOT PROPERTIES -->
+    <xacro:property name="floor_offset" value="0.016" />
+
+    <link name="base_link" />
+
+    <!-- ROBOT BASE -->
+    <xacro:include filename="base.xacro" />
+    <xacro:robot_base offsetZ="${floor_offset}" />
+
+
+    <!-- ROBOT WHEELS -->
+    <xacro:include filename="wheel.xacro" />
+    <xacro:wheel name="left" xyz="0 0.15 0.03" />
+    <xacro:wheel name="right" xyz="0 -0.15 0.03" />
+
+    <!-- LIDAR -->
+    <xacro:include filename="lidar.xacro" />
+    <xacro:lidar offsetZ="0.166" /> <!-- offsetZ = (current hight) + (base floor offset) -->
+
+    <!-- ULTRASOUND -->
+    <xacro:include filename="ultrasound_chassis.xacro" />
+    <xacro:ultrasound_chassis offsetZ="0.241" /> <!-- offsetZ = (current hight) + (base floor offset) -->
+
+</robot>

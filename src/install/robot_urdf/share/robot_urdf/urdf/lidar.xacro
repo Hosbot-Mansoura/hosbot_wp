@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" params="offset">
+    <xacro:property name="size" value="0.038" />
+    <xacro:property name="color" value="0.66 0.66 0.66 1.0" />
+
+    <xacro:macro name="lidar" params="offsetZ">
+        <!-- LIDAR BODY -->
+        <link name="lidar_body">
+            <visual>
+                <geometry>
+                    <box size="${size} ${size} 0.04" />
+                </geometry>
+                <material name="gray_color">
+                    <color rgba="${color}" />
+                </material>
+            </visual>
+
+        </link>
+        <joint name="lidar_body_joint" type="fixed">
+            <parent link="base_link" />
+            <child link="lidar_body" />
+            <origin xyz="0.12 0.0 ${offsetZ}" />
+        </joint>
+
+
+        <!-- LIDAR cylinder -->
+        <link name="lidar_cylinder">
+            <visual>
+                <geometry>
+                    <cylinder radius="${size/2}" length="0.028" />
+                </geometry>
+                <material name="gray_color">
+                    <color rgba="${color}" />
+                </material>
+            </visual>
+        </link>
+        <joint name="lidar_cylinder_joint" type="fixed">
+            <parent link="base_link" />
+            <child link="lidar_cylinder" />
+            <origin xyz="0.12 0.0 ${offsetZ + 0.02}" />
+        </joint>
+
+        <!-- LIDAR background -->
+        <link name="lidar_background">
+            <visual>
+                <geometry>
+                    <box size="0.01 0.399 0.075" />
+                </geometry>
+                <material name="gray_color">
+                    <color rgba="${color}" />
+                </material>
+            </visual>
+
+        </link>
+        <joint name="lidar_background_joint" type="fixed">
+            <parent link="base_link" />
+            <child link="lidar_background" />
+            <origin xyz="0.0 0.0 ${offsetZ + 0.0375}" />
+        </joint>
+
+    </xacro:macro>
+</robot>

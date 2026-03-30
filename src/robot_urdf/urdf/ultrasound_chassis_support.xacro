@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="ultrasound_chassis_support">
+
+        <link name="ultrasound_chassis_support_link">
+            <visual>
+                <geometry>
+                    <box size="0.01 0.399 ${ultrasound_chassis_support_hight}" />
+                </geometry>
+                <material name="colors_gray" />
+            </visual>
+        </link>
+
+        <joint name="lidar_background_joint" type="fixed">
+            <parent link="robot_base_link" />
+            <child link="ultrasound_chassis_support_link" />
+            <origin xyz="0.0 0.0 ${(robot_base_hight /2) + (ultrasound_chassis_support_hight /2)}" />
+        </joint>
+
+    </xacro:macro>
+</robot>

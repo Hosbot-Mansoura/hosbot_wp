@@ -1,0 +1,99 @@
+[0.000000] (-) TimerEvent: {}
+[0.000829] (-) JobUnselected: {'identifier': 'launch_pack'}
+[0.000986] (robot_urdf) JobQueued: {'identifier': 'robot_urdf', 'dependencies': OrderedDict()}
+[0.001092] (robot_urdf) JobStarted: {'identifier': 'robot_urdf'}
+[0.099894] (-) TimerEvent: {}
+[0.200248] (-) TimerEvent: {}
+[0.300554] (-) TimerEvent: {}
+[0.400930] (-) TimerEvent: {}
+[0.501296] (-) TimerEvent: {}
+[0.601673] (-) TimerEvent: {}
+[0.702362] (-) TimerEvent: {}
+[0.802873] (-) TimerEvent: {}
+[0.903242] (-) TimerEvent: {}
+[1.003632] (-) TimerEvent: {}
+[1.104039] (-) TimerEvent: {}
+[1.204387] (-) TimerEvent: {}
+[1.304960] (-) TimerEvent: {}
+[1.405658] (-) TimerEvent: {}
+[1.506221] (-) TimerEvent: {}
+[1.606836] (-) TimerEvent: {}
+[1.707425] (-) TimerEvent: {}
+[1.807851] (-) TimerEvent: {}
+[1.908445] (-) TimerEvent: {}
+[2.009126] (-) TimerEvent: {}
+[2.109621] (-) TimerEvent: {}
+[2.210087] (-) TimerEvent: {}
+[2.310782] (-) TimerEvent: {}
+[2.411210] (-) TimerEvent: {}
+[2.511584] (-) TimerEvent: {}
+[2.611961] (-) TimerEvent: {}
+[2.712347] (-) TimerEvent: {}
+[2.812729] (-) TimerEvent: {}
+[2.913366] (-) TimerEvent: {}
+[3.013860] (-) TimerEvent: {}
+[3.114232] (-) TimerEvent: {}
+[3.214573] (-) TimerEvent: {}
+[3.315263] (-) TimerEvent: {}
+[3.415971] (-) TimerEvent: {}
+[3.516433] (-) TimerEvent: {}
+[3.616942] (-) TimerEvent: {}
+[3.717324] (-) TimerEvent: {}
+[3.818016] (-) TimerEvent: {}
+[3.918703] (-) TimerEvent: {}
+[4.019463] (-) TimerEvent: {}
+[4.119867] (-) TimerEvent: {}
+[4.220468] (-) TimerEvent: {}
+[4.320989] (-) TimerEvent: {}
+[4.421424] (-) TimerEvent: {}
+[4.521705] (-) TimerEvent: {}
+[4.622105] (-) TimerEvent: {}
+[4.722496] (-) TimerEvent: {}
+[4.822727] (-) TimerEvent: {}
+[4.855357] (robot_urdf) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/robot_urdf', 'build', '--build-base', '/home/youssef/hosbot_wp/src/build/robot_urdf/build', 'install', '--record', '/home/youssef/hosbot_wp/src/build/robot_urdf/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/youssef/hosbot_wp/src/robot_urdf', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/2542-2-Youssef-Refaat_TIME727696', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'youssef', 'XDG_SESSION_TYPE': 'x11', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/youssef/ros2_wp/install/custom_interfaces/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/youssef', 'OLDPWD': '/home/youssef/hosbot_wp', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2146', 'SYSTEMD_EXEC_PID': '2542', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '11614', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/youssef/hosbot_wp/install:/home/youssef/turtle_sim_wp/install:/home/youssef/ros2_wp/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'youssef', 'JOURNAL_STREAM': '9:26751', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'youssef', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/Youssef-Refaat:@/tmp/.ICE-unix/2499,unix/Youssef-Refaat:/tmp/.ICE-unix/2499', 'INVOCATION_ID': '4c949ce098d942899f982ba2f6a13329', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/youssef/hosbot_wp/install/robot_urdf:/home/youssef/hosbot_wp/install/launch_pack:/home/youssef/ros2_wp/install/test_launch:/home/youssef/ros2_wp/install/test_pkg:/home/youssef/ros2_wp/install/custom_interfaces:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:5bbcb533-012b-402d-a29d-26adc93fbce1', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/youssef/hosbot_wp/src/build/robot_urdf', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/youssef/hosbot_wp/src/build/robot_urdf/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages:/home/youssef/hosbot_wp/install/robot_urdf/lib/python3.12/site-packages:/home/youssef/ros2_wp/build/test_pkg:/home/youssef/ros2_wp/install/test_pkg/lib/python3.12/site-packages:/home/youssef/ros2_wp/install/custom_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/youssef/hosbot_wp/install/launch_pack:/home/youssef/ros2_wp/install/test_launch:/home/youssef/ros2_wp/install/custom_interfaces:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[4.922852] (-) TimerEvent: {}
+[5.023119] (-) TimerEvent: {}
+[5.083953] (robot_urdf) StdoutLine: {'line': b'running egg_info\n'}
+[5.084305] (robot_urdf) StdoutLine: {'line': b'creating ../build/robot_urdf/robot_urdf.egg-info\n'}
+[5.100295] (robot_urdf) StdoutLine: {'line': b'writing ../build/robot_urdf/robot_urdf.egg-info/PKG-INFO\n'}
+[5.100513] (robot_urdf) StdoutLine: {'line': b'writing dependency_links to ../build/robot_urdf/robot_urdf.egg-info/dependency_links.txt\n'}
+[5.100738] (robot_urdf) StdoutLine: {'line': b'writing requirements to ../build/robot_urdf/robot_urdf.egg-info/requires.txt\n'}
+[5.100902] (robot_urdf) StdoutLine: {'line': b'writing top-level names to ../build/robot_urdf/robot_urdf.egg-info/top_level.txt\n'}
+[5.101014] (robot_urdf) StdoutLine: {'line': b"writing manifest file '../build/robot_urdf/robot_urdf.egg-info/SOURCES.txt'\n"}
+[5.123634] (-) TimerEvent: {}
+[5.133750] (robot_urdf) StdoutLine: {'line': b"reading manifest file '../build/robot_urdf/robot_urdf.egg-info/SOURCES.txt'\n"}
+[5.134192] (robot_urdf) StdoutLine: {'line': b"writing manifest file '../build/robot_urdf/robot_urdf.egg-info/SOURCES.txt'\n"}
+[5.134532] (robot_urdf) StdoutLine: {'line': b'running build\n'}
+[5.134775] (robot_urdf) StdoutLine: {'line': b'running build_py\n'}
+[5.134927] (robot_urdf) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/src/build/robot_urdf/build\n'}
+[5.135046] (robot_urdf) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/src/build/robot_urdf/build/lib\n'}
+[5.135159] (robot_urdf) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/src/build/robot_urdf/build/lib/robot_urdf\n'}
+[5.135286] (robot_urdf) StdoutLine: {'line': b'copying robot_urdf/__init__.py -> /home/youssef/hosbot_wp/src/build/robot_urdf/build/lib/robot_urdf\n'}
+[5.135446] (robot_urdf) StdoutLine: {'line': b'running install\n'}
+[5.140433] (robot_urdf) StdoutLine: {'line': b'running install_lib\n'}
+[5.157004] (robot_urdf) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages/robot_urdf\n'}
+[5.157220] (robot_urdf) StdoutLine: {'line': b'copying /home/youssef/hosbot_wp/src/build/robot_urdf/build/lib/robot_urdf/__init__.py -> /home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages/robot_urdf\n'}
+[5.157443] (robot_urdf) StdoutLine: {'line': b'byte-compiling /home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages/robot_urdf/__init__.py to __init__.cpython-312.pyc\n'}
+[5.157644] (robot_urdf) StdoutLine: {'line': b'running install_data\n'}
+[5.157873] (robot_urdf) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/src/install/robot_urdf/share/ament_index\n'}
+[5.158038] (robot_urdf) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/src/install/robot_urdf/share/ament_index/resource_index\n'}
+[5.158204] (robot_urdf) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/src/install/robot_urdf/share/ament_index/resource_index/packages\n'}
+[5.158319] (robot_urdf) StdoutLine: {'line': b'copying resource/robot_urdf -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/ament_index/resource_index/packages\n'}
+[5.158428] (robot_urdf) StdoutLine: {'line': b'copying package.xml -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf\n'}
+[5.158535] (robot_urdf) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf\n'}
+[5.158641] (robot_urdf) StdoutLine: {'line': b'copying urdf/chassis.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf\n'}
+[5.168645] (robot_urdf) StdoutLine: {'line': b'copying urdf/wheel.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf\n'}
+[5.187395] (robot_urdf) StdoutLine: {'line': b'copying urdf/ultrasound_chassis.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf\n'}
+[5.187712] (robot_urdf) StdoutLine: {'line': b'copying urdf/robot.urdf.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf\n'}
+[5.187911] (robot_urdf) StdoutLine: {'line': b'copying urdf/lidar.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf\n'}
+[5.195847] (robot_urdf) StdoutLine: {'line': b'copying urdf/base.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf\n'}
+[5.204293] (robot_urdf) StdoutLine: {'line': b'running install_egg_info\n'}
+[5.221839] (robot_urdf) StdoutLine: {'line': b'Copying ../build/robot_urdf/robot_urdf.egg-info to /home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages/robot_urdf-0.0.0-py3.12.egg-info\n'}
+[5.222503] (robot_urdf) StdoutLine: {'line': b'running install_scripts\n'}
+[5.223704] (-) TimerEvent: {}
+[5.323968] (-) TimerEvent: {}
+[5.332663] (robot_urdf) StdoutLine: {'line': b"writing list of installed files to '/home/youssef/hosbot_wp/src/build/robot_urdf/install.log'\n"}
+[5.365000] (robot_urdf) CommandEnded: {'returncode': 0}
+[5.424419] (-) TimerEvent: {}
+[5.517164] (robot_urdf) JobEnded: {'identifier': 'robot_urdf', 'rc': 0}
+[5.518571] (-) EventReactorShutdown: {}

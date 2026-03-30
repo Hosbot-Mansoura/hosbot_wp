@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="base">
+
+    <xacro:property name="radius" value="0.2" />
+    <xacro:property name="length" value="0.15" />
+
+    <xacro:macro name="robot_base" params="offsetZ">
+        <!-- SHAPE-->
+        <link name="robot_base_link">
+            <visual>
+                <geometry>
+                    <cylinder radius="${radius}" length="${length}" />
+                </geometry>
+                <material name="gray_color">
+                    <color rgba="0.66 0.66 0.66 1.0" />
+                </material>
+            </visual>
+
+            <!-- <collision>
+                <geometry>
+                    <cylinder radius="${radius}" length="${length}" />
+                </geometry>
+                <origin xyz="0.0 0.0 0.0" />
+            </collision> -->
+        </link>
+
+        <!-- JOINT-->
+        <joint name="robot_base_joint" type="fixed">
+            <parent link="base_link" />
+            <child link="robot_base_link" />
+            <origin xyz="0.0 0.0 ${(length/2) + offsetZ}" />
+        </joint>
+
+    </xacro:macro>
+</robot>

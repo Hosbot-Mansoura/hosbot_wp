@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- DIMENSIONS-->
+    <xacro:property name="robot_base_hight" value="0.25" />
+    <xacro:property name="ultrasound_chassis_support_hight" value="0.07" />
+    <xacro:property name="ultrasound_chassis_hight" value="0.065" />
+
+    <!-- COLORS-->
+    <material name="colors_gray">
+        <color rgba="0.66 0.66 0.66 1.0" />
+    </material>
+    <material name="colors_black">
+        <color rgba="0.0 0.0 0.0 1.0" />
+    </material>
+
+
+</robot>

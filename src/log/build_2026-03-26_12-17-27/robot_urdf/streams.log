@@ -1,0 +1,39 @@
+[4.855s] Invoking command in '/home/youssef/hosbot_wp/src/robot_urdf': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/youssef/hosbot_wp/src/build/robot_urdf/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/robot_urdf build --build-base /home/youssef/hosbot_wp/src/build/robot_urdf/build install --record /home/youssef/hosbot_wp/src/build/robot_urdf/install.log --single-version-externally-managed install_data
+[5.083s] running egg_info
+[5.083s] creating ../build/robot_urdf/robot_urdf.egg-info
+[5.099s] writing ../build/robot_urdf/robot_urdf.egg-info/PKG-INFO
+[5.099s] writing dependency_links to ../build/robot_urdf/robot_urdf.egg-info/dependency_links.txt
+[5.100s] writing requirements to ../build/robot_urdf/robot_urdf.egg-info/requires.txt
+[5.100s] writing top-level names to ../build/robot_urdf/robot_urdf.egg-info/top_level.txt
+[5.100s] writing manifest file '../build/robot_urdf/robot_urdf.egg-info/SOURCES.txt'
+[5.133s] reading manifest file '../build/robot_urdf/robot_urdf.egg-info/SOURCES.txt'
+[5.133s] writing manifest file '../build/robot_urdf/robot_urdf.egg-info/SOURCES.txt'
+[5.134s] running build
+[5.134s] running build_py
+[5.134s] creating /home/youssef/hosbot_wp/src/build/robot_urdf/build
+[5.134s] creating /home/youssef/hosbot_wp/src/build/robot_urdf/build/lib
+[5.134s] creating /home/youssef/hosbot_wp/src/build/robot_urdf/build/lib/robot_urdf
+[5.134s] copying robot_urdf/__init__.py -> /home/youssef/hosbot_wp/src/build/robot_urdf/build/lib/robot_urdf
+[5.134s] running install
+[5.139s] running install_lib
+[5.156s] creating /home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages/robot_urdf
+[5.156s] copying /home/youssef/hosbot_wp/src/build/robot_urdf/build/lib/robot_urdf/__init__.py -> /home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages/robot_urdf
+[5.156s] byte-compiling /home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages/robot_urdf/__init__.py to __init__.cpython-312.pyc
+[5.157s] running install_data
+[5.157s] creating /home/youssef/hosbot_wp/src/install/robot_urdf/share/ament_index
+[5.157s] creating /home/youssef/hosbot_wp/src/install/robot_urdf/share/ament_index/resource_index
+[5.157s] creating /home/youssef/hosbot_wp/src/install/robot_urdf/share/ament_index/resource_index/packages
+[5.157s] copying resource/robot_urdf -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/ament_index/resource_index/packages
+[5.157s] copying package.xml -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf
+[5.157s] creating /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf
+[5.158s] copying urdf/chassis.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf
+[5.168s] copying urdf/wheel.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf
+[5.186s] copying urdf/ultrasound_chassis.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf
+[5.187s] copying urdf/robot.urdf.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf
+[5.187s] copying urdf/lidar.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf
+[5.195s] copying urdf/base.xacro -> /home/youssef/hosbot_wp/src/install/robot_urdf/share/robot_urdf/urdf
+[5.203s] running install_egg_info
+[5.221s] Copying ../build/robot_urdf/robot_urdf.egg-info to /home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages/robot_urdf-0.0.0-py3.12.egg-info
+[5.221s] running install_scripts
+[5.332s] writing list of installed files to '/home/youssef/hosbot_wp/src/build/robot_urdf/install.log'
+[5.364s] Invoked command in '/home/youssef/hosbot_wp/src/robot_urdf' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/youssef/hosbot_wp/src/build/robot_urdf/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/youssef/hosbot_wp/src/install/robot_urdf/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/robot_urdf build --build-base /home/youssef/hosbot_wp/src/build/robot_urdf/build install --record /home/youssef/hosbot_wp/src/build/robot_urdf/install.log --single-version-externally-managed install_data

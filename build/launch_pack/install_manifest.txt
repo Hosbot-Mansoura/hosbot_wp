@@ -1,0 +1,17 @@
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/launch/simulation.launch.py
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/launch/urdf.launch.py
+/home/youssef/hosbot_wp/install/launch_pack/share/ament_index/resource_index/package_run_dependencies/launch_pack
+/home/youssef/hosbot_wp/install/launch_pack/share/ament_index/resource_index/parent_prefix_path/launch_pack
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/environment/ament_prefix_path.sh
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/environment/ament_prefix_path.dsv
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/environment/path.sh
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/environment/path.dsv
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/local_setup.bash
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/local_setup.sh
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/local_setup.zsh
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/local_setup.dsv
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/package.dsv
+/home/youssef/hosbot_wp/install/launch_pack/share/ament_index/resource_index/packages/launch_pack
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/cmake/launch_packConfig.cmake
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/cmake/launch_packConfig-version.cmake
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/package.xml

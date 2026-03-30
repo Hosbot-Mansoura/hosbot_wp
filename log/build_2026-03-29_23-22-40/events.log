@@ -1,0 +1,90 @@
+[0.000000] (-) TimerEvent: {}
+[0.000710] (-) JobUnselected: {'identifier': 'launch_pack'}
+[0.000793] (-) JobUnselected: {'identifier': 'ldlidar_ros2'}
+[0.000849] (-) JobUnselected: {'identifier': 'robot_urdf'}
+[0.000902] (hardware_pkg) JobQueued: {'identifier': 'hardware_pkg', 'dependencies': OrderedDict()}
+[0.000957] (hardware_pkg) JobStarted: {'identifier': 'hardware_pkg'}
+[0.099798] (-) TimerEvent: {}
+[0.200507] (-) TimerEvent: {}
+[0.301055] (-) TimerEvent: {}
+[0.401437] (-) TimerEvent: {}
+[0.502020] (-) TimerEvent: {}
+[0.602483] (-) TimerEvent: {}
+[0.702924] (-) TimerEvent: {}
+[0.803808] (-) TimerEvent: {}
+[0.904655] (-) TimerEvent: {}
+[1.005380] (-) TimerEvent: {}
+[1.106118] (-) TimerEvent: {}
+[1.206764] (-) TimerEvent: {}
+[1.307678] (-) TimerEvent: {}
+[1.408344] (-) TimerEvent: {}
+[1.508794] (-) TimerEvent: {}
+[1.609323] (-) TimerEvent: {}
+[1.710072] (-) TimerEvent: {}
+[1.810977] (-) TimerEvent: {}
+[1.911705] (-) TimerEvent: {}
+[2.012451] (-) TimerEvent: {}
+[2.113104] (-) TimerEvent: {}
+[2.213801] (-) TimerEvent: {}
+[2.314597] (-) TimerEvent: {}
+[2.415038] (-) TimerEvent: {}
+[2.515819] (-) TimerEvent: {}
+[2.616377] (-) TimerEvent: {}
+[2.717018] (-) TimerEvent: {}
+[2.817802] (-) TimerEvent: {}
+[2.918753] (-) TimerEvent: {}
+[3.019499] (-) TimerEvent: {}
+[3.120160] (-) TimerEvent: {}
+[3.220744] (-) TimerEvent: {}
+[3.321394] (-) TimerEvent: {}
+[3.421845] (-) TimerEvent: {}
+[3.522309] (-) TimerEvent: {}
+[3.622739] (-) TimerEvent: {}
+[3.723294] (-) TimerEvent: {}
+[3.823840] (-) TimerEvent: {}
+[3.916965] (hardware_pkg) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/hardware_pkg', 'build', '--build-base', '/home/youssef/hosbot_wp/build/hardware_pkg/build', 'install', '--record', '/home/youssef/hosbot_wp/build/hardware_pkg/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/youssef/hosbot_wp/src/hardware_pkg', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/1981-12-youssef_TIME31730091', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'youssef', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/youssef/ros2_wp/install/custom_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/youssef', 'OLDPWD': '/home/youssef', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '1559', 'SYSTEMD_EXEC_PID': '1981', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '13997', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/youssef/hosbot_wp/install:/home/youssef/ros2_wp/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'youssef', 'JOURNAL_STREAM': '9:18691', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'youssef', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/youssef:@/tmp/.ICE-unix/1942,unix/youssef:/tmp/.ICE-unix/1942', 'INVOCATION_ID': '5b9148c19fa3461fa869d54401bd4d05', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/youssef/hosbot_wp/install/robot_urdf:/home/youssef/hosbot_wp/install/ldlidar_ros2:/home/youssef/hosbot_wp/install/launch_pack:/home/youssef/ros2_wp/install/test_launch:/home/youssef/ros2_wp/install/test_pkg:/home/youssef/ros2_wp/install/custom_interfaces:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:812d5118-6a6a-41ad-8e65-07875c2413d4', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/youssef/hosbot_wp/build/hardware_pkg', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/youssef/hosbot_wp/build/hardware_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages:/home/youssef/hosbot_wp/install/robot_urdf/lib/python3.12/site-packages:/home/youssef/ros2_wp/build/test_pkg:/home/youssef/ros2_wp/install/test_pkg/lib/python3.12/site-packages:/home/youssef/ros2_wp/install/custom_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/youssef/hosbot_wp/install/ldlidar_ros2:/home/youssef/hosbot_wp/install/launch_pack:/home/youssef/ros2_wp/install/test_launch:/home/youssef/ros2_wp/install/custom_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[3.923972] (-) TimerEvent: {}
+[4.024365] (-) TimerEvent: {}
+[4.124798] (-) TimerEvent: {}
+[4.177030] (hardware_pkg) StdoutLine: {'line': b'running egg_info\n'}
+[4.177506] (hardware_pkg) StdoutLine: {'line': b'creating ../../build/hardware_pkg/hardware_pkg.egg-info\n'}
+[4.195679] (hardware_pkg) StdoutLine: {'line': b'writing ../../build/hardware_pkg/hardware_pkg.egg-info/PKG-INFO\n'}
+[4.196038] (hardware_pkg) StdoutLine: {'line': b'writing dependency_links to ../../build/hardware_pkg/hardware_pkg.egg-info/dependency_links.txt\n'}
+[4.196391] (hardware_pkg) StdoutLine: {'line': b'writing entry points to ../../build/hardware_pkg/hardware_pkg.egg-info/entry_points.txt\n'}
+[4.196577] (hardware_pkg) StdoutLine: {'line': b'writing requirements to ../../build/hardware_pkg/hardware_pkg.egg-info/requires.txt\n'}
+[4.196757] (hardware_pkg) StdoutLine: {'line': b'writing top-level names to ../../build/hardware_pkg/hardware_pkg.egg-info/top_level.txt\n'}
+[4.196931] (hardware_pkg) StdoutLine: {'line': b"writing manifest file '../../build/hardware_pkg/hardware_pkg.egg-info/SOURCES.txt'\n"}
+[4.224945] (-) TimerEvent: {}
+[4.233834] (hardware_pkg) StdoutLine: {'line': b"reading manifest file '../../build/hardware_pkg/hardware_pkg.egg-info/SOURCES.txt'\n"}
+[4.234318] (hardware_pkg) StdoutLine: {'line': b"writing manifest file '../../build/hardware_pkg/hardware_pkg.egg-info/SOURCES.txt'\n"}
+[4.234707] (hardware_pkg) StdoutLine: {'line': b'running build\n'}
+[4.234935] (hardware_pkg) StdoutLine: {'line': b'running build_py\n'}
+[4.235139] (hardware_pkg) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/build/hardware_pkg/build\n'}
+[4.235365] (hardware_pkg) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/build/hardware_pkg/build/lib\n'}
+[4.235567] (hardware_pkg) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg\n'}
+[4.235758] (hardware_pkg) StdoutLine: {'line': b'copying hardware_pkg/__init__.py -> /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg\n'}
+[4.236060] (hardware_pkg) StdoutLine: {'line': b'copying hardware_pkg/motors_node.py -> /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg\n'}
+[4.236267] (hardware_pkg) StdoutLine: {'line': b'running install\n'}
+[4.240766] (hardware_pkg) StdoutLine: {'line': b'running install_lib\n'}
+[4.260035] (hardware_pkg) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg\n'}
+[4.260417] (hardware_pkg) StdoutLine: {'line': b'copying /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg/__init__.py -> /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg\n'}
+[4.260659] (hardware_pkg) StdoutLine: {'line': b'copying /home/youssef/hosbot_wp/build/hardware_pkg/build/lib/hardware_pkg/motors_node.py -> /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg\n'}
+[4.260969] (hardware_pkg) StdoutLine: {'line': b'byte-compiling /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/__init__.py to __init__.cpython-312.pyc\n'}
+[4.261171] (hardware_pkg) StdoutLine: {'line': b'byte-compiling /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg/motors_node.py to motors_node.cpython-312.pyc\n'}
+[4.261489] (hardware_pkg) StdoutLine: {'line': b'running install_data\n'}
+[4.261778] (hardware_pkg) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/install/hardware_pkg/share/ament_index\n'}
+[4.261991] (hardware_pkg) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/install/hardware_pkg/share/ament_index/resource_index\n'}
+[4.262308] (hardware_pkg) StdoutLine: {'line': b'creating /home/youssef/hosbot_wp/install/hardware_pkg/share/ament_index/resource_index/packages\n'}
+[4.262525] (hardware_pkg) StdoutLine: {'line': b'copying resource/hardware_pkg -> /home/youssef/hosbot_wp/install/hardware_pkg/share/ament_index/resource_index/packages\n'}
+[4.262707] (hardware_pkg) StdoutLine: {'line': b'copying package.xml -> /home/youssef/hosbot_wp/install/hardware_pkg/share/hardware_pkg\n'}
+[4.262883] (hardware_pkg) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.281842] (hardware_pkg) StdoutLine: {'line': b'Copying ../../build/hardware_pkg/hardware_pkg.egg-info to /home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages/hardware_pkg-0.0.0-py3.12.egg-info\n'}
+[4.282595] (hardware_pkg) StdoutLine: {'line': b'running install_scripts\n'}
+[4.325099] (-) TimerEvent: {}
+[4.408272] (hardware_pkg) StdoutLine: {'line': b'Installing motors_node script to /home/youssef/hosbot_wp/install/hardware_pkg/lib/hardware_pkg\n'}
+[4.408673] (hardware_pkg) StdoutLine: {'line': b"writing list of installed files to '/home/youssef/hosbot_wp/build/hardware_pkg/install.log'\n"}
+[4.425278] (-) TimerEvent: {}
+[4.441203] (hardware_pkg) CommandEnded: {'returncode': 0}
+[4.525508] (-) TimerEvent: {}
+[4.533314] (hardware_pkg) JobEnded: {'identifier': 'hardware_pkg', 'rc': 0}
+[4.534883] (-) EventReactorShutdown: {}

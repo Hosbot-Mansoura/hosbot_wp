@@ -1,0 +1,42 @@
+[0.017s] Invoking command in '/home/youssef/hosbot_wp/build/launch_pack': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/youssef/hosbot_wp/install/robot_urdf:/home/youssef/ros2_wp/install/test_pkg:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/youssef/hosbot_wp/src/launch_pack -DCMAKE_INSTALL_PREFIX=/home/youssef/hosbot_wp/install/launch_pack
+[0.099s] -- The C compiler identification is GNU 13.3.0
+[0.159s] -- The CXX compiler identification is GNU 13.3.0
+[0.185s] -- Detecting C compiler ABI info
+[0.288s] -- Detecting C compiler ABI info - done
+[0.297s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.297s] -- Detecting C compile features
+[0.297s] -- Detecting C compile features - done
+[0.307s] -- Detecting CXX compiler ABI info
+[0.411s] -- Detecting CXX compiler ABI info - done
+[0.420s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.420s] -- Detecting CXX compile features
+[0.420s] -- Detecting CXX compile features - done
+[0.425s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.616s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.864s] -- Configuring done (0.8s)
+[0.867s] -- Generating done (0.0s)
+[0.868s] -- Build files have been written to: /home/youssef/hosbot_wp/build/launch_pack
+[0.875s] Invoked command in '/home/youssef/hosbot_wp/build/launch_pack' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/youssef/hosbot_wp/install/robot_urdf:/home/youssef/ros2_wp/install/test_pkg:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/youssef/hosbot_wp/src/launch_pack -DCMAKE_INSTALL_PREFIX=/home/youssef/hosbot_wp/install/launch_pack
+[0.876s] Invoking command in '/home/youssef/hosbot_wp/build/launch_pack': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/youssef/hosbot_wp/install/robot_urdf:/home/youssef/ros2_wp/install/test_pkg:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/youssef/hosbot_wp/build/launch_pack -- -j16 -l16
+[0.952s] Invoked command in '/home/youssef/hosbot_wp/build/launch_pack' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/youssef/hosbot_wp/install/robot_urdf:/home/youssef/ros2_wp/install/test_pkg:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/youssef/hosbot_wp/build/launch_pack -- -j16 -l16
+[0.971s] Invoking command in '/home/youssef/hosbot_wp/build/launch_pack': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/youssef/hosbot_wp/install/robot_urdf:/home/youssef/ros2_wp/install/test_pkg:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/youssef/hosbot_wp/build/launch_pack
+[0.980s] -- Install configuration: ""
+[0.980s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/launch
+[0.980s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/launch/simulation.launch.py
+[0.981s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/launch/urdf.launch.py
+[0.981s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/ament_index/resource_index/package_run_dependencies/launch_pack
+[0.981s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/ament_index/resource_index/parent_prefix_path/launch_pack
+[0.981s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/environment/ament_prefix_path.sh
+[0.981s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/environment/ament_prefix_path.dsv
+[0.981s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/environment/path.sh
+[0.981s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/environment/path.dsv
+[0.981s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/local_setup.bash
+[0.982s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/local_setup.sh
+[0.982s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/local_setup.zsh
+[0.982s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/local_setup.dsv
+[0.982s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/package.dsv
+[0.982s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/ament_index/resource_index/packages/launch_pack
+[0.982s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/cmake/launch_packConfig.cmake
+[0.982s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/cmake/launch_packConfig-version.cmake
+[0.982s] -- Installing: /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/package.xml
+[0.985s] Invoked command in '/home/youssef/hosbot_wp/build/launch_pack' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/youssef/hosbot_wp/install/robot_urdf:/home/youssef/ros2_wp/install/test_pkg:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/youssef/hosbot_wp/build/launch_pack

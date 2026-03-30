@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="hosbot">
+    <xacro:include filename="properties.xacro" />
+
+    <link name="base_link" />
+
+    <!-- ROBOT BASE -->
+    <xacro:include filename="robot_base.xacro" />
+    <xacro:robot_base />
+
+    <!-- ===> ROBOT WHEELS <=== -->
+    <xacro:include filename="wheel.xacro" />
+    <xacro:wheel name="left_wheel" y="0.15" />
+    <xacro:wheel name="right_wheel" y="-0.15" />
+
+    <!-- ===> FREE WHEELS <=== -->
+    <!-- all degrees used in radian [ theta * (3.14[py] / 180) ]-->
+    <!-- x = r * cos(theta) || y = r * sin(theta) -->
+    <xacro:include filename="free_wheel.xacro" />
+    <xacro:free_wheel name="free_wheel_1" xy=" 0.1228   0.0860" /> <!--   35' -->
+    <xacro:free_wheel name="free_wheel_2" xy=" 0.1228  -0.0860" /> <!--  -35' -->
+    <xacro:free_wheel name="free_wheel_3" xy="-0.1228   0.0860" /> <!--   145' -->
+    <xacro:free_wheel name="free_wheel_4" xy="-0.1228  -0.0860" /> <!--  -145' -->
+
+
+    <!-- ===> LIDAR <=== -->
+    <xacro:include filename="lidar.xacro" />
+    <xacro:lidar />
+
+    <!-- ===> ULTRASOUND CHASSIS SUPPORT <=== -->
+    <xacro:include filename="ultrasound_chassis_support.xacro" />
+    <xacro:ultrasound_chassis_support />
+
+    <!-- ===> ULTRASOUND CHASSIS <=== -->
+    <xacro:include filename="ultrasound_chassis.xacro" />
+    <!-- offsetZ = (current hight) + (base floor offset)-->
+    <xacro:ultrasound_chassis />
+
+    <!-- ===> ULTRASOUND SENSOR <=== -->
+    <!-- all degrees used in radian [ theta * (3.14[py] / 180) ]-->
+    <!-- x = r * cos(theta) || y = r * sin(theta) -->
+    <xacro:include filename="ultrasound_sensor.xacro" />
+    <xacro:ultrasound_sensor name="ultrasound_1" rpy="0 1.5708 0" xyz="0.1951 0 0" />
+    <xacro:ultrasound_sensor name="ultrasound_2" rpy="-0.698 1.5708 0" xyz="0.1494 0.1254 0" />
+    <xacro:ultrasound_sensor name="ultrasound_3" rpy="0.698 1.5708 0" xyz="0.1494 -0.1254 0" />
+
+
+</robot>

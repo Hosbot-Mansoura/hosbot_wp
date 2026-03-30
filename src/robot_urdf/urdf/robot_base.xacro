@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="base">
+
+    <xacro:macro name="robot_base">
+        <!-- SHAPE-->
+        <link name="robot_base_link">
+            <visual>
+                <geometry>
+                    <cylinder radius="0.2" length="${robot_base_hight}" />
+                </geometry>
+                <material name="colors_gray" />
+            </visual>
+        </link>
+
+        <!-- JOINT-->
+        <joint name="robot_base_joint" type="fixed">
+            <parent link="base_link" />
+            <child link="robot_base_link" />
+            <origin xyz="0.0 0.0 ${(robot_base_hight/2) + 0.016}" />
+        </joint>
+
+    </xacro:macro>
+</robot>
