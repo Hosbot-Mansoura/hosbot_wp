@@ -22,10 +22,10 @@ class MotorsNode(Node):
         self.Left_PWM = 18
         self.Right_PWM = 24
         #### [ MOTOR PINS SETUP ] ####
-        GPIO.setup(self.Left_DIR , GPIO.output)
-        GPIO.setup(self.Right_DIR , GPIO.output)
-        GPIO.setup(self.Left_PWM , GPIO.output)
-        GPIO.setup(self.Right_PWM , GPIO.output)
+        GPIO.setup(self.Left_DIR , GPIO.OUT)
+        GPIO.setup(self.Right_DIR , GPIO.OUT)
+        GPIO.setup(self.Left_PWM , GPIO.OUT)
+        GPIO.setup(self.Right_PWM , GPIO.OUT)
         #### [ INITIAL MOTORS VALUES ] ####
         self.pwm_left = GPIO.PWM(self.Left_PWM,1000)
         self.pwm_right = GPIO.PWM(self.Right_PWM , 1000)
@@ -36,11 +36,11 @@ class MotorsNode(Node):
 
 
     def motor_cmd(self, msg:Twist):
-        linear = msg.linear
-        angular = msg.angular
+        linear = msg.linear.x
+        angular = msg.angular.z
         v_left = linear - (angular * (self.wheel_base / 2.0))
         v_right = linear + (angular * (self.wheel_base / 2.0))
-        self.set_motor_speed(self , v_left , v_right)
+        self.set_motor_speed(v_left , v_right)
         
 
     def set_motor_speed(self , left , right):
@@ -64,6 +64,7 @@ class MotorsNode(Node):
 
 def main(arg=None):
     rclpy.init(args=arg)
+    GPIO.setmode(GPIO.BCM)
     node = MotorsNode()
     rclpy.spin(node)
     node.destroy_node()
