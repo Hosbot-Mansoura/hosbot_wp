@@ -50,10 +50,10 @@ class MotorsNode(Node):
         ##### [ MOTORS SPEEDS ] #####
         # LEFT MOTOR
         self.Left_DIR_PIN.on() if vLeft_clipped >= 0 else self.Left_DIR_PIN.off()
-        self.Left_PWM_PIN.value = vLeft_norm
+        self.Left_PWM_PIN.value = abs(vLeft_norm)
         # RIGHT MOTOR
         self.Right_DIR_PIN.on() if vRight_clipped >= 0 else self.Right_DIR_PIN.off()
-        self.Right_PWM_PIN.value = vRight_norm
+        self.Right_PWM_PIN.value = abs(vRight_norm)
     
     def stop(self):
         self.Left_DIR_PIN.off()
