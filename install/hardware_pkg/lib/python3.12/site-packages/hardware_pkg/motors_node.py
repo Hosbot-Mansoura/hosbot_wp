@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-# To install main library for this node
+# ==> To install main library for this node
 #  sudo apt update
 #  sudo apt install python3-gpiozero
-# '
+# ==> Fro test 
+# sudo apt install ros-jazzy-teleop-twist-keyboard
+# ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist

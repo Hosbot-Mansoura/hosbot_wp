@@ -9,7 +9,7 @@ setup.py
 ../../build/hardware_pkg/hardware_pkg.egg-info/top_level.txt
 ../../build/hardware_pkg/hardware_pkg.egg-info/zip-safe
 hardware_pkg/__init__.py
-hardware_pkg/manual_motors_control_node.py
+hardware_pkg/keyboard_controller.py
 hardware_pkg/motors_node.py
 resource/hardware_pkg
 test/test_copyright.py

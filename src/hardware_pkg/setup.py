@@ -24,7 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            "motors_node = hardware_pkg.motors_node:main"
+            "motors_node = hardware_pkg.motors_node:main",
+            "keyboard_controller_node = hardware_pkg.keyboard_controller:main"
         ],
     },
 )

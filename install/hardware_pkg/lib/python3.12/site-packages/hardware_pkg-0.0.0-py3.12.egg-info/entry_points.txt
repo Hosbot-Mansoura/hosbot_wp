@@ -1,2 +1,3 @@
 [console_scripts]
+keyboard_controller_node = hardware_pkg.keyboard_controller:main
 motors_node = hardware_pkg.motors_node:main
