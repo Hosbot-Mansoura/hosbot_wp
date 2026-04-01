@@ -11,7 +11,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from gpiozero import PWMOutputDevice, DigitalOutputDevice
-import hardware_pkg.config.hardware_config as config
+import hardware_pkg.hardware_pkg.hardware_config as config
 
 class MotorsNode(Node):
     def __init__(self):

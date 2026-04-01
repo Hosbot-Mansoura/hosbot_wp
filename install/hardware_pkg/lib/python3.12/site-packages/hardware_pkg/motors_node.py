@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 # ==> To install main library for this node
 #  sudo apt update
 #  sudo apt install python3-gpiozero
@@ -10,6 +11,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from gpiozero import PWMOutputDevice, DigitalOutputDevice
+import hardware_pkg.config.hardware_config as config
 
 class MotorsNode(Node):
     def __init__(self):
@@ -23,10 +25,10 @@ class MotorsNode(Node):
         #### [ SUBSCRIBE TO COMMANDS CHANNEL (cmd_vel) ] ####
         self.subscription = self.create_subscription(Twist,'/cmd_vel',self.cmd_to_speed,10)
         #### [ MOTOR PINS ] ####
-        self.Left_DIR_PIN = DigitalOutputDevice(17)
-        self.Left_PWM_PIN = PWMOutputDevice(18)
-        self.Right_DIR_PIN = DigitalOutputDevice(23)
-        self.Right_PWM_PIN = PWMOutputDevice(24)
+        self.Left_DIR_PIN = DigitalOutputDevice(config.LEFT_DIR_PIN_NUM)
+        self.Left_PWM_PIN = PWMOutputDevice(config.LEFT_PWM_PIN_NUM)
+        self.Right_DIR_PIN = DigitalOutputDevice(config.RIGHT_DIR_PIN_NUM)
+        self.Right_PWM_PIN = PWMOutputDevice(config.RIGHT_PWM_PIN_NUM)
 
         self.get_logger().info("Motors has been initialized successfully")
 
@@ -44,16 +46,16 @@ class MotorsNode(Node):
         vRight_clipped = max(min(vRight,self.max_speed) , -self.max_speed)
        
         ##### [ NORMALIZE TO RANGE [0-1] ] #####
-        vLeft_norm = vLeft_clipped / self.max_speed
-        vRight_norm = vRight_clipped / self.max_speed
+        vLeft_norm = (vLeft_clipped / self.max_speed) * config.LEFT_MOTOR_SCALE
+        vRight_norm = (vRight_clipped / self.max_speed) * config.RIGHT_MOTOR_SCALE
         
         ##### [ MOTORS SPEEDS ] #####
         # LEFT MOTOR
         self.Left_DIR_PIN.on() if vLeft_clipped >= 0 else self.Left_DIR_PIN.off()
-        self.Left_PWM_PIN.value = vLeft_norm
+        self.Left_PWM_PIN.value = abs(vLeft_norm)
         # RIGHT MOTOR
         self.Right_DIR_PIN.on() if vRight_clipped >= 0 else self.Right_DIR_PIN.off()
-        self.Right_PWM_PIN.value = vRight_norm
+        self.Right_PWM_PIN.value = abs(vRight_norm)
     
     def stop(self):
         self.Left_DIR_PIN.off()
