@@ -11,24 +11,40 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from gpiozero import PWMOutputDevice, DigitalOutputDevice
-import hardware_pkg.config.hardware_config as config
+
 
 class MotorsNode(Node):
     def __init__(self):
         node_name = "motors_node" 
         super().__init__(node_name)
         #### [ DECLARE MAIN PARAMETERS ] ####
-        self.declare_parameter('wheel_base', 0.3) # This in meters
-        self.declare_parameter('max_speed' , 1.0)
-        self.wheel_base = self.get_parameter('wheel_base').value # Distance between wheels
-        self.max_speed = self.get_parameter('max_speed').value
+        self.declare_parameters(
+            namespace= '',
+            parameters=[
+            ('LEFT_DIR_PIN_NUM',rclpy.Parameter.Type.INTEGER),
+            ('LEFT_PWM_PIN_NUM',rclpy.Parameter.Type.INTEGER),
+            ('RIGHT_DIR_PIN_NUM',rclpy.Parameter.Type.INTEGER),
+            ('RIGHT_PWM_PIN_NUM',rclpy.Parameter.Type.INTEGER),
+            ('LEFT_MOTOR_SCALE',rclpy.Parameter.Type.DOUBLE),
+            ('RIGHT_MOTOR_SCALE',rclpy.Parameter.Type.DOUBLE),
+            ('WHEEL_BASE',rclpy.Parameter.Type.DOUBLE),
+            ('MAX_SPEED',rclpy.Parameter.Type.DOUBLE),
+        ])
+        self.left_dir_pin = self.get_parameter('LEFT_DIR_PIN_NUM').value
+        self.left_pwm_pin = self.get_parameter('LEFT_PWM_PIN_NUM').value
+        self.right_dir_pin = self.get_parameter('RIGHT_DIR_PIN_NUM').value
+        self.right_pwm_pin = self.get_parameter('RIGHT_PWM_PIN_NUM').value
+        self.left_motor_scale = self.get_parameter('LEFT_MOTOR_SCALE').value
+        self.right_motor_scale = self.get_parameter('RIGHT_MOTOR_SCALE').value
+        self.wheel_base = self.get_parameter('WHEEL_BASE').value
+        self.max_speed = self.get_parameter('MAX_SPEED').value
         #### [ SUBSCRIBE TO COMMANDS CHANNEL (cmd_vel) ] ####
         self.subscription = self.create_subscription(Twist,'/cmd_vel',self.cmd_to_speed,10)
         #### [ MOTOR PINS ] ####
-        self.Left_DIR_PIN = DigitalOutputDevice(config.LEFT_DIR_PIN_NUM)
-        self.Left_PWM_PIN = PWMOutputDevice(config.LEFT_PWM_PIN_NUM)
-        self.Right_DIR_PIN = DigitalOutputDevice(config.RIGHT_DIR_PIN_NUM)
-        self.Right_PWM_PIN = PWMOutputDevice(config.RIGHT_PWM_PIN_NUM)
+        self.Left_DIR_PIN = DigitalOutputDevice(self.left_dir_pin)
+        self.Left_PWM_PIN = PWMOutputDevice(self.left_pwm_pin)
+        self.Right_DIR_PIN = DigitalOutputDevice(self.right_dir_pin)
+        self.Right_PWM_PIN = PWMOutputDevice(self.right_pwm_pin)
 
         self.get_logger().info("Motors has been initialized successfully")
 
@@ -46,8 +62,8 @@ class MotorsNode(Node):
         vRight_clipped = max(min(vRight,self.max_speed) , -self.max_speed)
        
         ##### [ NORMALIZE TO RANGE [0-1] ] #####
-        vLeft_norm = (vLeft_clipped / self.max_speed) * config.LEFT_MOTOR_SCALE
-        vRight_norm = (vRight_clipped / self.max_speed) * config.RIGHT_MOTOR_SCALE
+        vLeft_norm = (vLeft_clipped / self.max_speed) * self.left_motor_scale
+        vRight_norm = (vRight_clipped / self.max_speed) * self.right_motor_scale
         
         ##### [ MOTORS SPEEDS ] #####
         # LEFT MOTOR

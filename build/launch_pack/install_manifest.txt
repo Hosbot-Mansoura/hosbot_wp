@@ -1,4 +1,5 @@
 /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/launch/simulation.launch.py
+/home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/launch/navigation.launch.py
 /home/youssef/hosbot_wp/install/launch_pack/share/launch_pack/launch/urdf.launch.py
 /home/youssef/hosbot_wp/install/launch_pack/share/ament_index/resource_index/package_run_dependencies/launch_pack
 /home/youssef/hosbot_wp/install/launch_pack/share/ament_index/resource_index/parent_prefix_path/launch_pack

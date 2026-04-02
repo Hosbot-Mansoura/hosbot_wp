@@ -8,7 +8,9 @@ setup.py
 ../../build/hardware_pkg/hardware_pkg.egg-info/requires.txt
 ../../build/hardware_pkg/hardware_pkg.egg-info/top_level.txt
 ../../build/hardware_pkg/hardware_pkg.egg-info/zip-safe
+config/params.yaml
 hardware_pkg/__init__.py
+hardware_pkg/hardware_config.py
 hardware_pkg/keyboard_controller.py
 hardware_pkg/motors_node.py
 resource/hardware_pkg
