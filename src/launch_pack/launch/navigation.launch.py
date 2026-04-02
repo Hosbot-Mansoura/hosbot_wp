@@ -15,13 +15,5 @@ def generate_launch_description():
         output="screen"
     )
 
-    keyboard_controller_node = Node(
-        package="hardware_pkg",
-        executable="keyboard_controller_node",
-        name="keyboard_controller_node",
-        output = "screen"
-    )
-
     launch.add_action(motors_node)
-    launch.add_action(keyboard_controller_node)
     return launch
