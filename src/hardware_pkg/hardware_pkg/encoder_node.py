@@ -27,8 +27,8 @@ class EncoderNode(Node):
         self.left_encoder = DigitalInputDevice(self.left_pin, pull_up = True, bounce_time = 0.02)
         self.right_encoder = DigitalInputDevice(self.right_pin, pull_up = True, bounce_time = 0.02)
         ##### [ MAGNET DETECTED ] #####
-        self.left_encoder.when_activated = lambda: self.on_pulse_detected(self,is_left= True)
-        self.right_encoder.when_activated = lambda: self.on_pulse_detected(self,is_left= False)
+        self.left_encoder.when_activated = lambda: self.on_pulse_detected(is_left= True)
+        self.right_encoder.when_activated = lambda: self.on_pulse_detected(is_left= False)
 
         self.get_logger().info('Encoders has been initialized successfully')
 
