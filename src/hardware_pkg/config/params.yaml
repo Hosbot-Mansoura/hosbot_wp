@@ -12,5 +12,5 @@ motors_node:
 encoder_node:
   ros__parameters:
     LEFT_ENCODER_PIN_NUM: 25
-    RIGHT_ENCODER_PIN_NUM: 8
+    RIGHT_ENCODER_PIN_NUM: 27
     MAGNET_COUNT : 6
