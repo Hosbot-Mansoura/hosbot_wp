@@ -1,3 +1,4 @@
 [console_scripts]
+encoder_node = hardware_pkg.encoder_node:main
 keyboard_controller_node = hardware_pkg.keyboard_controller:main
 motors_node = hardware_pkg.motors_node:main

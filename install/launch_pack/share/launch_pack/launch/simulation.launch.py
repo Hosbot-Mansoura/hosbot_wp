@@ -23,4 +23,3 @@ def generate_launch_description():
     )
 
     return LaunchDescription([state_publisher_node])
-    pass

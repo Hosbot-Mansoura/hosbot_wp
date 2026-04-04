@@ -8,3 +8,9 @@ motors_node:
     RIGHT_MOTOR_SCALE : 1.0
     WHEEL_BASE : 0.3
     MAX_SPEED : 1.0
+
+encoder_node:
+  ros__parameters:
+    LEFT_ENCODER_PIN_NUM: 25
+    RIGHT_ENCODER_PIN_NUM: 8
+    MAGNET_COUNT : 6

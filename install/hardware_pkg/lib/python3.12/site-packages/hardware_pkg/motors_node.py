@@ -38,13 +38,13 @@ class MotorsNode(Node):
         self.right_motor_scale = self.get_parameter('RIGHT_MOTOR_SCALE').value
         self.wheel_base = self.get_parameter('WHEEL_BASE').value
         self.max_speed = self.get_parameter('MAX_SPEED').value
-        #### [ SUBSCRIBE TO COMMANDS CHANNEL (cmd_vel) ] ####
-        self.subscription = self.create_subscription(Twist,'/cmd_vel',self.cmd_to_speed,10)
         #### [ MOTOR PINS ] ####
         self.Left_DIR_PIN = DigitalOutputDevice(self.left_dir_pin)
         self.Left_PWM_PIN = PWMOutputDevice(self.left_pwm_pin)
         self.Right_DIR_PIN = DigitalOutputDevice(self.right_dir_pin)
         self.Right_PWM_PIN = PWMOutputDevice(self.right_pwm_pin)
+        #### [ SUBSCRIBE TO COMMANDS CHANNEL (cmd_vel) ] ####
+        self.subscription = self.create_subscription(Twist,'/cmd_vel',self.cmd_to_speed,10)
 
         self.get_logger().info("Motors has been initialized successfully")
 
