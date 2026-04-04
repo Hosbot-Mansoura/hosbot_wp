@@ -30,6 +30,9 @@ class EncoderNode(Node):
         self.left_encoder.when_activated = lambda: self.on_pulse_detected(self,is_left= True)
         self.right_encoder.when_activated = lambda: self.on_pulse_detected(self,is_left= False)
 
+        self.get_logger().info('Encoders has been initialized successfully')
+
+
 
     def on_pulse_detected(self, is_left = True):
         if is_left :
