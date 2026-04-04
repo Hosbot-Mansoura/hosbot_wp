@@ -20,9 +20,9 @@ class EncoderNode(Node):
                 ('MAGNET_COUNT' , rclpy.Parameter.Type.INTEGER),
             ]
         )
-        self.left_pin = self.get_parameter('LEFT_ENCODER_PIN_NUM')
-        self.right_pin = self.get_parameter('RIGHT_ENCODER_PIN_NUM')
-        self.magnet_count = self.get_parameter('MAGNET_COUNT')
+        self.left_pin = self.get_parameter('LEFT_ENCODER_PIN_NUM').value
+        self.right_pin = self.get_parameter('RIGHT_ENCODER_PIN_NUM').value
+        self.magnet_count = self.get_parameter('MAGNET_COUNT').value
         ##### [ CREATE ENCODER OBJECT ] #####
         self.left_encoder = DigitalInputDevice(self.left_pin, pull_up = True, bounce_time = 0.02)
         self.right_encoder = DigitalInputDevice(self.right_pin, pull_up = True, bounce_time = 0.02)
