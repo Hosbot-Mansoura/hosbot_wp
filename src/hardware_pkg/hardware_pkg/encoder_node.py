@@ -3,6 +3,8 @@
 import rclpy
 from rclpy.node import Node
 from gpiozero import DigitalInputDevice 
+from geometry_msgs.msg import Twist
+
 
 
 class EncoderNode(Node):
@@ -24,14 +26,21 @@ class EncoderNode(Node):
         self.right_pin = self.get_parameter('RIGHT_ENCODER_PIN_NUM').value
         self.magnet_count = self.get_parameter('MAGNET_COUNT').value
         ##### [ CREATE ENCODER OBJECT ] #####
-        self.left_encoder = DigitalInputDevice(self.left_pin, pull_up = True, bounce_time = 0.02)
-        self.right_encoder = DigitalInputDevice(self.right_pin, pull_up = True, bounce_time = 0.02)
+        self.left_encoder = DigitalInputDevice(self.left_pin, pull_up = True, bounce_time = 0.001)
+        self.right_encoder = DigitalInputDevice(self.right_pin, pull_up = True, bounce_time = 0.001)
         ##### [ MAGNET DETECTED ] #####
         self.left_encoder.when_activated = lambda: self.on_pulse_detected(is_left= True)
         self.right_encoder.when_activated = lambda: self.on_pulse_detected(is_left= False)
 
+        self.test_en(self)
         self.get_logger().info('Encoders has been initialized successfully')
 
+    def test_en(self):
+        twist :Twist = Twist()
+        while (self.left_pin <= 6 or self.right_pin <= 6):
+            twist.linear.x = 0.3
+            publisher = self.create_publisher(Twist ,'/cmd_vel',10)
+            publisher.publish(twist)
 
 
     def on_pulse_detected(self, is_left = True):
