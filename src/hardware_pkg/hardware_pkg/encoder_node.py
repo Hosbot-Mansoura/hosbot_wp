@@ -5,9 +5,22 @@ from rclpy.node import Node
 from gpiozero import DigitalInputDevice 
 from geometry_msgs.msg import Twist
 
+class Encoder:
+    def __init__(self, pin, callback):
+        self.sensor = DigitalInputDevice(pin, pull_up=True , bounce_time=0.001)
+        self.callback = callback
+        self.last_state = 0
+        self.timer = Node.create_timer(0.001, self.update)
 
+    def update(self):
+        current_state = self.sensor.value
+        if current_state == 1 and self.last_state == 0:
+            self.callback()
+            
+        self.last_state = current_state
 
 class EncoderNode(Node):
+    
     def __init__(self):
         node_name = "encoder_node"
         super().__init__(node_name)
@@ -26,28 +39,34 @@ class EncoderNode(Node):
         self.right_pin = self.get_parameter('RIGHT_ENCODER_PIN_NUM').value
         self.magnet_count = self.get_parameter('MAGNET_COUNT').value
         ##### [ CREATE ENCODER OBJECT ] #####
-        self.left_encoder = DigitalInputDevice(self.left_pin, pull_up = True, bounce_time = 0.001)
-        self.right_encoder = DigitalInputDevice(self.right_pin, pull_up = True, bounce_time = 0.001)
-        ##### [ MAGNET DETECTED ] #####
-        self.left_encoder.when_activated = lambda: self.on_pulse_detected(is_left= True)
-        self.right_encoder.when_activated = lambda: self.on_pulse_detected(is_left= False)
+        # self.left_encoder = DigitalInputDevice(self.left_pin, pull_up = True, bounce_time = 0.001)
+        # self.right_encoder = DigitalInputDevice(self.right_pin, pull_up = True, bounce_time = 0.001)
+        self.left_sensor = Encoder(self.left_pin ,self.left_pulse_detected)
+        self.right_sensor = Encoder(self.right_pin ,self.right_pulse_detected)
 
-        self.test_en()
+        # self.test_en()
         self.get_logger().info('Encoders has been initialized successfully')
 
-    def test_en(self):
-        twist :Twist = Twist()
-        while (self.left_pin <= 6 or self.right_pin <= 6):
-            twist.linear.x = 0.3
-            publisher = self.create_publisher(Twist ,'/cmd_vel',10)
-            publisher.publish(twist)
+    def left_pulse_detected(self):
+        self.get_logger().info('Left Magnet Detected')
 
+    def right_pulse_detected(self):
+        self.get_logger().info('Right Magnet Detected')
 
-    def on_pulse_detected(self, is_left = True):
-        if is_left :
-            self.get_logger().info('Left Pulse Detected')
-        else :
-            self.get_logger().info('Right Pulse Detected')
+    # def test_en(self):
+    #     twist :Twist = Twist()
+    #     while (self.left_pin <= 6 or self.right_pin <= 6):
+    #         twist.linear.x = 0.3
+    #         publisher = self.create_publisher(Twist ,'/cmd_vel',10)
+    #         publisher.publish(twist)
+
+    def on_left_pulse(self):
+        pass
+
+    def on_right_pulse(self):
+        pass 
+
+ 
 
 
 
