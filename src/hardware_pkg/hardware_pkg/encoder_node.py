@@ -44,7 +44,7 @@ class EncoderNode(Node):
         self.left_sensor = Encoder(self.left_pin ,self.left_pulse_detected)
         self.right_sensor = Encoder(self.right_pin ,self.right_pulse_detected)
 
-        # self.test_en()
+        self.test_en()
         self.get_logger().info('Encoders has been initialized successfully')
 
     def left_pulse_detected(self):
@@ -53,12 +53,12 @@ class EncoderNode(Node):
     def right_pulse_detected(self):
         self.get_logger().info('Right Magnet Detected')
 
-    # def test_en(self):
-    #     twist :Twist = Twist()
-    #     while (self.left_pin <= 6 or self.right_pin <= 6):
-    #         twist.linear.x = 0.3
-    #         publisher = self.create_publisher(Twist ,'/cmd_vel',10)
-    #         publisher.publish(twist)
+    def test_en(self):
+        twist :Twist = Twist()
+        while (self.left_pin <= 6 or self.right_pin <= 6):
+            twist.linear.x = 0.3
+            publisher = self.create_publisher(Twist ,'/cmd_vel',10)
+            publisher.publish(twist)
 
     def on_left_pulse(self):
         pass
