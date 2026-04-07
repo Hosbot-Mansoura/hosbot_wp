@@ -69,12 +69,14 @@ class EncoderNode(Node):
         cmd_pub = self.create_publisher(Twist, '/cmd_vel' ,10)
         left_pub = self.create_publisher(Int32, '/calibration/encoder/left' ,10)
         right_pub = self.create_publisher(Int32, '/calibration/encoder/right' ,10)
-        cmd_pub.publish(twist)
-        time.sleep(5.0)
-        cmd_pub.publish(Twist())
-        l_encoder_trigger_count = self.left_pulse_counter
-        r_encoder_trigger_count = self.right_pulse_counter
-        left_pub.publish()
+        start_time = self.get_clock().now()
+        while True:
+            time_elapsed = ((self.get_clock().now() - start_time)).nanoseconds / 1e9
+            if time_elapsed >= 5 :
+                break
+            cmd_pub.publish(twist)
+        left_pub.publish(self.left_pulse_counter)
+        right_pub.publish(self.right_pulse_counter)
 
 
 
