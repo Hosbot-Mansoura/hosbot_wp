@@ -3,7 +3,11 @@
 import rclpy
 from rclpy.node import Node
 from gpiozero import DigitalInputDevice 
-from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Twist 
+from std_msgs.msg import Int32
+import time
+
+
 
 class Encoder:
     def __init__(self , pin, callback):
@@ -35,19 +39,20 @@ class EncoderNode(Node):
                 ('LEFT_ENCODER_PIN_NUM' , rclpy.Parameter.Type.INTEGER),
                 ('RIGHT_ENCODER_PIN_NUM' , rclpy.Parameter.Type.INTEGER),
                 ('MAGNET_COUNT' , rclpy.Parameter.Type.INTEGER),
+                ('MODE' , rclpy.Parameter.Type.STRING),
             ]
         )
         self.left_pin = self.get_parameter('LEFT_ENCODER_PIN_NUM').value
         self.right_pin = self.get_parameter('RIGHT_ENCODER_PIN_NUM').value
         self.magnet_count = self.get_parameter('MAGNET_COUNT').value
+        self.mode = self.get_parameter('MODE').value
         ##### [ CREATE ENCODER OBJECT ] #####
-        # self.left_encoder = DigitalInputDevice(self.left_pin, pull_up = True, bounce_time = 0.001)
-        # self.right_encoder = DigitalInputDevice(self.right_pin, pull_up = True, bounce_time = 0.001)
         self.left_sensor = Encoder(self.left_pin ,self.left_pulse_detected)
         self.right_sensor = Encoder(self.right_pin ,self.right_pulse_detected)
         self.get_logger().info('Encoders has been initialized successfully')
+        if self.mode == "Calibration":
+            self.calibrate()
         
-        # self.test_en()
 
     def left_pulse_detected(self):
         self.left_pulse_counter += 1
@@ -57,26 +62,19 @@ class EncoderNode(Node):
         self.right_pulse_counter += 1
         self.get_logger().info('Right Magnet Detected: '+str(self.right_pulse_counter))
 
-    def test_en(self):
-        twist :Twist = Twist()
-        publisher = self.create_publisher(Twist ,'/cmd_vel',10)
+
+    def calibrate(self):
+        twist = Twist()
         twist.linear.x = 0.3
-        while self.right_pulse_counter < 6 :
-            publisher.publish(twist)
-        if(self.right_pulse_counter >= 6):
-            publisher.publish(Twist())
-
-    def on_left_pulse(self):
-        pass
-
-    def on_right_pulse(self):
-        pass 
-
- 
-
-
-
-
+        cmd_pub = self.create_publisher(Twist, '/cmd_vel' ,10)
+        left_pub = self.create_publisher(Int32, '/calibration/encoder/left' ,10)
+        right_pub = self.create_publisher(Int32, '/calibration/encoder/right' ,10)
+        cmd_pub.publish(twist)
+        time.sleep(5.0)
+        cmd_pub.publish(Twist())
+        l_encoder_trigger_count = self.left_pulse_counter
+        r_encoder_trigger_count = self.right_pulse_counter
+        left_pub.publish()
 
 
 

@@ -14,3 +14,4 @@ encoder_node:
     LEFT_ENCODER_PIN_NUM: 25
     RIGHT_ENCODER_PIN_NUM: 27
     MAGNET_COUNT : 6
+    MODE : "Normal" # [Normal - Calibration] 
