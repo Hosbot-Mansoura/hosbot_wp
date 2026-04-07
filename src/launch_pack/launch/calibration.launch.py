@@ -10,8 +10,8 @@ def generate_launch_description():
 
     calibration_node = Node(
         package="hardware_pkg",
-        executable="calibration_node",
-        name="calibration_node",
+        executable="calibrate_motors_node",
+        name="calibrate_motors_node",
         output="screen"
     )
 
