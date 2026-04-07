@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/youssef/hosbot_wp/src/launch_pack
+CMAKE_SOURCE_DIR = /home/hosbot/hosbot_wp/src/launch_pack
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/youssef/hosbot_wp/build/launch_pack
+CMAKE_BINARY_DIR = /home/hosbot/hosbot_wp/build/launch_pack
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/youssef/hosbot_wp/build/launch_pack/CMakeFiles /home/youssef/hosbot_wp/build/launch_pack//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles /home/hosbot/hosbot_wp/build/launch_pack//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/youssef/hosbot_wp/build/launch_pack/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

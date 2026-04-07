@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/youssef/hosbot_wp/src/launch_pack
+CMAKE_SOURCE_DIR = /home/hosbot/hosbot_wp/src/launch_pack
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/youssef/hosbot_wp/build/launch_pack
+CMAKE_BINARY_DIR = /home/hosbot/hosbot_wp/build/launch_pack
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -82,14 +82,14 @@ clean: CMakeFiles/launch_pack_uninstall.dir/clean
 CMakeFiles/uninstall.dir/all: CMakeFiles/launch_pack_uninstall.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/youssef/hosbot_wp/build/launch_pack/CMakeFiles --progress-num= "Built target uninstall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles --progress-num= "Built target uninstall"
 .PHONY : CMakeFiles/uninstall.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/youssef/hosbot_wp/build/launch_pack/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/youssef/hosbot_wp/build/launch_pack/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles 0
 .PHONY : CMakeFiles/uninstall.dir/rule
 
 # Convenience name for target.
@@ -108,14 +108,14 @@ CMakeFiles/uninstall.dir/clean:
 CMakeFiles/launch_pack_uninstall.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/launch_pack_uninstall.dir/build.make CMakeFiles/launch_pack_uninstall.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/launch_pack_uninstall.dir/build.make CMakeFiles/launch_pack_uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/youssef/hosbot_wp/build/launch_pack/CMakeFiles --progress-num= "Built target launch_pack_uninstall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles --progress-num= "Built target launch_pack_uninstall"
 .PHONY : CMakeFiles/launch_pack_uninstall.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/launch_pack_uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/youssef/hosbot_wp/build/launch_pack/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/launch_pack_uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/youssef/hosbot_wp/build/launch_pack/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles 0
 .PHONY : CMakeFiles/launch_pack_uninstall.dir/rule
 
 # Convenience name for target.

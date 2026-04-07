@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/youssef/hosbot_wp/src/launch_pack
+CMAKE_SOURCE_DIR = /home/hosbot/hosbot_wp/src/launch_pack
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/youssef/hosbot_wp/build/launch_pack
+CMAKE_BINARY_DIR = /home/hosbot/hosbot_wp/build/launch_pack
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/youssef/hosbot_wp/build/launch_pack && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/youssef/hosbot_wp/src/launch_pack /home/youssef/hosbot_wp/src/launch_pack /home/youssef/hosbot_wp/build/launch_pack /home/youssef/hosbot_wp/build/launch_pack /home/youssef/hosbot_wp/build/launch_pack/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/hosbot/hosbot_wp/build/launch_pack && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hosbot/hosbot_wp/src/launch_pack /home/hosbot/hosbot_wp/src/launch_pack /home/hosbot/hosbot_wp/build/launch_pack /home/hosbot/hosbot_wp/build/launch_pack /home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/uninstall.dir/depend
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/youssef/hosbot_wp/src/launch_pack
+# Install script for directory: /home/hosbot/hosbot_wp/src/launch_pack
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/youssef/hosbot_wp/install/launch_pack")
+  set(CMAKE_INSTALL_PREFIX "/home/hosbot/hosbot_wp/install/launch_pack")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,15 +43,15 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE DIRECTORY FILES "/home/youssef/hosbot_wp/src/launch_pack/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE DIRECTORY FILES "/home/hosbot/hosbot_wp/src/launch_pack/launch")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/launch_pack")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/launch_pack")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/launch_pack")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/launch_pack")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -59,7 +59,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack/environment" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack/environment" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -67,42 +67,42 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack/environment" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack/environment" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_index/share/ament_index/resource_index/packages/launch_pack")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_index/share/ament_index/resource_index/packages/launch_pack")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack/cmake" TYPE FILE FILES
-    "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_core/launch_packConfig.cmake"
-    "/home/youssef/hosbot_wp/build/launch_pack/ament_cmake_core/launch_packConfig-version.cmake"
+    "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_core/launch_packConfig.cmake"
+    "/home/hosbot/hosbot_wp/build/launch_pack/ament_cmake_core/launch_packConfig-version.cmake"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/youssef/hosbot_wp/src/launch_pack/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/launch_pack" TYPE FILE FILES "/home/hosbot/hosbot_wp/src/launch_pack/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -113,5 +113,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/youssef/hosbot_wp/build/launch_pack/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/hosbot/hosbot_wp/build/launch_pack/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -6,7 +6,7 @@ from gpiozero import DigitalInputDevice
 from geometry_msgs.msg import Twist
 
 class Encoder:
-    def __init__(self, pin, callback):
+    def __init__(self , pin, callback):
         self.sensor = DigitalInputDevice(pin, pull_up=False , bounce_time=0.01)
         self.callback = callback
         self.last_state = 0
@@ -15,7 +15,7 @@ class Encoder:
 
     def activated(self):
         if self.last_state != 1:
-            self.callback 
+            self.callback() 
         self.last_state = 1
 
     def deactivated(self):
@@ -45,22 +45,26 @@ class EncoderNode(Node):
         # self.right_encoder = DigitalInputDevice(self.right_pin, pull_up = True, bounce_time = 0.001)
         self.left_sensor = Encoder(self.left_pin ,self.left_pulse_detected)
         self.right_sensor = Encoder(self.right_pin ,self.right_pulse_detected)
-
-        self.test_en()
         self.get_logger().info('Encoders has been initialized successfully')
+        
+        # self.test_en()
 
     def left_pulse_detected(self):
-        self.get_logger().info('Left Magnet Detected')
+        self.left_pulse_counter += 1
+        self.get_logger().info('Left Magnet Detected: '+ str(self.left_pulse_counter))
 
     def right_pulse_detected(self):
-        self.get_logger().info('Right Magnet Detected')
+        self.right_pulse_counter += 1
+        self.get_logger().info('Right Magnet Detected: '+str(self.right_pulse_counter))
 
     def test_en(self):
         twist :Twist = Twist()
-        while (self.left_pin <= 6 or self.right_pin <= 6):
-            twist.linear.x = 0.3
-            publisher = self.create_publisher(Twist ,'/cmd_vel',10)
+        publisher = self.create_publisher(Twist ,'/cmd_vel',10)
+        twist.linear.x = 0.3
+        while self.right_pulse_counter < 6 :
             publisher.publish(twist)
+        if(self.right_pulse_counter >= 6):
+            publisher.publish(Twist())
 
     def on_left_pulse(self):
         pass
