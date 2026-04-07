@@ -7,17 +7,19 @@ from geometry_msgs.msg import Twist
 
 class Encoder:
     def __init__(self, pin, callback):
-        self.sensor = DigitalInputDevice(pin, pull_up=True , bounce_time=0.001)
+        self.sensor = DigitalInputDevice(pin, pull_up=False , bounce_time=0.01)
         self.callback = callback
         self.last_state = 0
-        self.timer = Node.create_timer(0.001, self.update)
+        self.sensor.when_activated = self.activated
+        self.sensor.when_deactivated = self.deactivated
 
-    def update(self):
-        current_state = self.sensor.value
-        if current_state == 1 and self.last_state == 0:
-            self.callback()
-            
-        self.last_state = current_state
+    def activated(self):
+        if self.last_state != 1:
+            self.callback 
+        self.last_state = 1
+
+    def deactivated(self):
+        self.last_state = 0
 
 class EncoderNode(Node):
     
