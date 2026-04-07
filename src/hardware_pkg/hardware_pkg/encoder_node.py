@@ -75,6 +75,7 @@ class EncoderNode(Node):
             if time_elapsed >= 5 :
                 break
             cmd_pub.publish(twist)
+            
         left_pub.publish(Int32(data = self.left_pulse_counter))
         right_pub.publish(Int32(data = self.right_pulse_counter))
         left_pub.destroy()

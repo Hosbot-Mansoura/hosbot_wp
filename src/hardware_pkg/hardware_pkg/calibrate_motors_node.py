@@ -32,7 +32,7 @@ class CalibrateMotorsNode(Node):
         right_motor_RPM = ((self.r_encoder_pulse_count / 6) / 5.0) / 60
         logger.info("Left motor RPM: "+str(left_motor_RPM))
         logger.info("Right motor RPM: "+str(right_motor_RPM))
-        motors_factor =  (right_motor_RPM /left_motor_RPM) if left_motor_RPM > right_motor_RPM else (left_motor_RPM /right_motor_RPM)
+        motors_factor =  (right_motor_RPM /min(left_motor_RPM,1)) if left_motor_RPM > right_motor_RPM else (left_motor_RPM /min(right_motor_RPM,1))
         logger.info("Motors factor: " +str(motors_factor))
         self.get_logger().info("########## CALIBRATING MOTORS FINISHED ##########")
 
