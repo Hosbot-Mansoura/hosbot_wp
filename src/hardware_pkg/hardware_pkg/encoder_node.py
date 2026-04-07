@@ -70,9 +70,12 @@ class EncoderNode(Node):
         left_pub = self.create_publisher(Int32, '/calibration/encoder/left' ,10)
         right_pub = self.create_publisher(Int32, '/calibration/encoder/right' ,10)
         start_time = self.get_clock().now()
+        self.get_logger().info('Start time: '+ str(start_time))
         while True:
-            time_elapsed = ((self.get_clock().now() - start_time)).nanoseconds / 1e9
+            now = self.get_clock().now() 
+            time_elapsed = ((time- start_time)).nanoseconds / 1e9
             if time_elapsed >= 5 :
+                self.get_logger().info('End time: '+str(now))
                 break
             cmd_pub.publish(twist)
         left_pub.publish(self.left_pulse_counter)
