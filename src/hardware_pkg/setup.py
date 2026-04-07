@@ -27,7 +27,8 @@ setup(
         'console_scripts': [
             "motors_node = hardware_pkg.motors_node:main",
             "keyboard_controller_node = hardware_pkg.keyboard_controller:main",
-            "encoder_node = hardware_pkg.encoder_node:main"
+            "encoder_node = hardware_pkg.encoder_node:main",
+            "calibrate_motors_node = hardware_pkg.calibrate_motors_node:main"
         ],
     },
 )
