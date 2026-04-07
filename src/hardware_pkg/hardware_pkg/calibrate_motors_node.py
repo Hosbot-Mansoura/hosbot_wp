@@ -15,12 +15,12 @@ class CalibrateMotorsNode(Node):
         self.r_encoder_sub = self.create_subscription(Int32 , '/calibration/encoder/right',self.on_right_encoder_data_received,10)
 
     def on_left_encoder_data_received(self, data:Int32):
-        self.l_encoder_pulse_count = data
+        self.l_encoder_pulse_count = data.data
         self.l_encoder_sub.destroy()
 
 
     def on_right_encoder_data_received(self, data:Int32):
-        self.r_encoder_pulse_count = data
+        self.r_encoder_pulse_count = data.data
         self.r_encoder_sub.destroy()
         self.calibrate_motor()
 
