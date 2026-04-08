@@ -22,7 +22,7 @@ def generate_launch_description():
 
     imu_node = Node(
         package='hardware_pkg',
-        exec_name='imu_node',
+        executable='imu_node',
         name = "imu_node",
         parameters=imu_config_files,
         output = 'screen'
