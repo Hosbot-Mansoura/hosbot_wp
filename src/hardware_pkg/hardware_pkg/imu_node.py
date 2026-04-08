@@ -51,7 +51,7 @@ class IMUNode(Node):
         return value
 
     def init(self):
-        self.imu_publisher = self.create_publisher(Imu,'imu/data_raw',10)
+        self.imu_publisher = self.create_publisher(Imu,'/imu/data_raw',10)
         # To reset sensor ( From data sheet ) ==> Chatgpt 
         self.bus.write_byte_data(self.imu_address, 0x7E, 0xB6)
         time.sleep(0.1)
