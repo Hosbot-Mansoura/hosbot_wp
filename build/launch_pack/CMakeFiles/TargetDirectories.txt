@@ -1,9 +1,0 @@
-/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/uninstall.dir
-/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/launch_pack_uninstall.dir
-/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/test.dir
-/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/edit_cache.dir
-/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/rebuild_cache.dir
-/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/list_install_components.dir
-/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/install.dir
-/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/install/local.dir
-/home/hosbot/hosbot_wp/build/launch_pack/CMakeFiles/install/strip.dir
