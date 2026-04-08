@@ -50,8 +50,10 @@ class EncoderNode(Node):
         self.left_sensor = Encoder(self.left_pin ,self.left_pulse_detected)
         self.right_sensor = Encoder(self.right_pin ,self.right_pulse_detected)
         self.get_logger().info('Encoders has been initialized successfully')
+        self.get_logger().info(self.mode)
         if self.mode == "Calibration":
             self.calibrate()
+
         
 
     def left_pulse_detected(self):
@@ -72,14 +74,14 @@ class EncoderNode(Node):
         start_time = self.get_clock().now()
         while True:
             time_elapsed = ((self.get_clock().now() - start_time)).nanoseconds / 1e9
-            if time_elapsed >= 5 :
+            if time_elapsed >= 30 :
                 break
             cmd_pub.publish(twist)
             
         left_pub.publish(Int32(data = self.left_pulse_counter))
         right_pub.publish(Int32(data = self.right_pulse_counter))
-        left_pub.destroy()
-        right_pub.destroy()
+        # left_pub.destroy()
+        # right_pub.destroy()
 
 
 

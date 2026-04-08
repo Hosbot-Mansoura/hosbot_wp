@@ -8,10 +8,11 @@ def generate_launch_description():
     hardware_package_path = get_package_share_directory('hardware_pkg')
     parameters_file = [os.path.join(hardware_package_path,'config','params.yaml')]
 
-    calibration_node = Node(
+    motors_node = Node(
         package="hardware_pkg",
-        executable="calibrate_motors_node",
-        name="calibrate_motors_node",
+        executable="motors_node",
+        name="motors_node",
+        parameters= parameters_file,
         output="screen"
     )
 
@@ -23,6 +24,15 @@ def generate_launch_description():
         output="screen"
     )
 
+    calibration_node = Node(
+        package="hardware_pkg",
+        executable="calibrate_motors_node",
+        name="calibrate_motors_node",
+        output="screen"
+    )
+
     launch.add_action(encoder_node)
+    launch.add_action(motors_node)
     launch.add_action(calibration_node)
+
     return launch

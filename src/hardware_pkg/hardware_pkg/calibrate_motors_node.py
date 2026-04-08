@@ -11,17 +11,17 @@ class CalibrateMotorsNode(Node):
         self.l_encoder_pulse_count = 0
         self.r_encoder_pulse_count = 0
         self.get_logger().info("########## START CALIBRATING MOTORS ##########")
-        self.l_encoder_sub = self.create_subscription(Int32 , '/calibration/encoder/lift',self.on_left_encoder_data_received,10)
+        self.l_encoder_sub = self.create_subscription(Int32 , '/calibration/encoder/left',self.on_left_encoder_data_received,10)
         self.r_encoder_sub = self.create_subscription(Int32 , '/calibration/encoder/right',self.on_right_encoder_data_received,10)
 
     def on_left_encoder_data_received(self, data:Int32):
         self.l_encoder_pulse_count = data.data
-        self.l_encoder_sub.destroy()
+        # self.l_encoder_sub.destroy()
 
 
     def on_right_encoder_data_received(self, data:Int32):
         self.r_encoder_pulse_count = data.data
-        self.r_encoder_sub.destroy()
+        # self.r_encoder_sub.destroy()
         self.calibrate_motor()
 
     def calibrate_motor(self):
@@ -32,7 +32,7 @@ class CalibrateMotorsNode(Node):
         right_motor_RPM = ((self.r_encoder_pulse_count / 6) / 5.0) / 60
         logger.info("Left motor RPM: "+str(left_motor_RPM))
         logger.info("Right motor RPM: "+str(right_motor_RPM))
-        motors_factor =  (right_motor_RPM /min(left_motor_RPM,1)) if left_motor_RPM > right_motor_RPM else (left_motor_RPM /min(right_motor_RPM,1))
+        motors_factor =  (right_motor_RPM /max(left_motor_RPM,0.0001)) if left_motor_RPM > right_motor_RPM else (left_motor_RPM /max(right_motor_RPM,0.0001))
         logger.info("Motors factor: " +str(motors_factor))
         self.get_logger().info("########## CALIBRATING MOTORS FINISHED ##########")
 

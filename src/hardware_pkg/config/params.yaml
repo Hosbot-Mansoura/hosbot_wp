@@ -4,14 +4,14 @@ motors_node:
     LEFT_PWM_PIN_NUM : 18
     RIGHT_DIR_PIN_NUM : 23
     RIGHT_PWM_PIN_NUM : 24
-    LEFT_MOTOR_SCALE : 1.0
+    LEFT_MOTOR_SCALE : 0.96
     RIGHT_MOTOR_SCALE : 1.0
     WHEEL_BASE : 0.3
-    MAX_SPEED : 1.0
+    MAX_SPEED : 0.5
 
 encoder_node:
   ros__parameters:
     LEFT_ENCODER_PIN_NUM: 25
     RIGHT_ENCODER_PIN_NUM: 27
     MAGNET_COUNT : 6
-    MODE : "Calibration" # [Normal - Calibration] 
+    MODE : "Normal" # [Normal - Calibration] 
