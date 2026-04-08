@@ -3,6 +3,7 @@
 # TO INSTALL smbus2
 # sudo apt update
 # sudo apt install python3-smbus2 i2c-tools -y
+# sudo apt install ros-jazzy-robot-localization
 
 import rclpy
 from rclpy.node import Node
@@ -113,7 +114,7 @@ class IMUNode(Node):
         imu_msg.orientation_covariance[0] = -1 
         imu_msg.angular_velocity_covariance = [0.02,0,0,0,0.02,0,0,0,0.02]
         imu_msg.linear_acceleration_covariance = [0.1,0,0,0,0.1,0,0,0,0.1]
-        
+
         ########## [ PUBLISH IMU MESSAGE TO robot_localization ] ##########
         self.imu_publisher.publish(imu_msg)
 
