@@ -9,6 +9,7 @@ from rclpy.node import Node
 import smbus2
 import time
 import math
+from sensor_msgs.msg import Imu
 
 class IMUNode(Node):
     def __init__(self):
@@ -49,6 +50,7 @@ class IMUNode(Node):
         return value
 
     def init(self):
+        self.imu_publisher = self.create_publisher(Imu,'imu/data_raw',10)
         # To reset sensor ( From data sheet ) ==> Chatgpt 
         self.bus.write_byte_data(self.imu_address, 0x7E, 0xB6)
         time.sleep(0.1)
@@ -71,6 +73,7 @@ class IMUNode(Node):
         # Range [0-6] for gyroscope 
         # Range [7-12] for acceleration
         ########## [ RAW DATA ] ##########
+        imu_msg = Imu()
         gyro_data = self.bus.read_i2c_block_data(self.imu_address, 0x0c, 6)
         acc_data = self.bus.read_i2c_block_data(self.imu_address, 0x12, 6)
 
@@ -98,6 +101,21 @@ class IMUNode(Node):
         ay = ay_in_g * self.gravity_value
         az = az_in_g * self.gravity_value
 
+        ########## [ CREATE IMU MESSAGE ] ##########
+        imu_msg.header.stamp = self.get_clock().now().to_msg()
+        imu_msg.header.frame_id = "imu_link"
+        imu_msg.angular_velocity.x = gx
+        imu_msg.angular_velocity.y = gy
+        imu_msg.angular_velocity.z = gz
+        imu_msg.linear_acceleration.x = ax
+        imu_msg.linear_acceleration.y = ay
+        imu_msg.linear_acceleration.z = az
+        imu_msg.orientation_covariance[0] = -1 
+        imu_msg.angular_velocity_covariance = [0.02,0,0,0,0.02,0,0,0,0.02]
+        imu_msg.linear_acceleration_covariance = [0.1,0,0,0,0.1,0,0,0,0.1]
+        
+        ########## [ PUBLISH IMU MESSAGE TO robot_localization ] ##########
+        self.imu_publisher.publish(imu_msg)
 
 
 
