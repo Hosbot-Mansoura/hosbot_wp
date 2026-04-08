@@ -19,6 +19,7 @@ def generate_launch_description():
         parameters=ekf_config_files
     )
 
+
     imu_node = Node(
         package='hardware_pkg',
         exec_name='imu_node',
