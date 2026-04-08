@@ -15,3 +15,9 @@ encoder_node:
     RIGHT_ENCODER_PIN_NUM: 27
     MAGNET_COUNT : 6
     MODE : "Normal" # [Normal - Calibration] 
+
+imu_node:
+  ros__parameters:
+    I2C_BUS_CHANNEL : 1
+    IMU_REGISTER_ADDRESS : 0x69
+    FREQUENCY : 50 # Hz

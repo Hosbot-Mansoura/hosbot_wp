@@ -3,6 +3,7 @@
         "gpiozero",
         "hosbot",
         "rclpy",
+        "smbus",
         "urdf",
         "xacro"
     ]
