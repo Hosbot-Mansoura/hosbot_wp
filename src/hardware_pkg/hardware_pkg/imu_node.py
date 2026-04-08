@@ -21,12 +21,14 @@ class IMUNode(Node):
                 ('I2C_BUS_CHANNEL',rclpy.Parameter.Type.INTEGER),
                 ('IMU_REGISTER_ADDRESS',rclpy.Parameter.Type.INTEGER),
                 ('FREQUENCY',rclpy.Parameter.Type.INTEGER),
-
             ]
         )
         self.i2c_channel = self.get_parameter('I2C_BUS_CHANNEL').value
         self.imu_address = self.get_parameter('IMU_REGISTER_ADDRESS').value
         self.frequency = self.get_parameter('FREQUENCY').value
+        self.gyroscope_scale_factor = 131
+        self.acceleration_scale_factor = 16384
+        self.gravity_value = 9.81
         ########## [ CREATE MAIN OBJECTS ] ##########
         self.bus = smbus2.SMBus(self.i2c_channel)
         ########## [ INITIALIZE IMU SENSOR ] ##########
@@ -47,16 +49,58 @@ class IMUNode(Node):
         return value
 
     def init(self):
+        # To reset sensor ( From data sheet ) ==> Chatgpt 
+        self.bus.write_byte_data(self.imu_address, 0x7E, 0xB6)
+        time.sleep(0.1)
+        # 0x11 Value to enable acceleration data ( from data sheet ) ==> Chatgpt
         self.bus.write_byte_data(self.imu_address,0x7E,0x11)
         time.sleep(0.1)
+        # 0x15 Value to enable gyroscope data ( from data sheet ) ==> Chatgpt
         self.bus.write_byte_data(self.imu_address,0x7E,0x15)
         time.sleep(0.1)
 
+        # 0x41 Address to set acceleration allowed range
+        # 0x03 Value  to set range (+/- 2g) ( from data sheet ) ==> chatgpt
+        self.bus.write_byte_data(self.imu_address, 0x41, 0x03)
+        time.sleep(0.1)
+        # 0x41 Address to set acceleration allowed range
+        # 0x03 Value  to set range (+/- 250 deg/s) ( from data sheet ) ==> chatgpt
+        self.bus.write_byte_data(self.imu_address, 0x43, 0x03)
+
     def read_data(self):
-        data = self.bus.read_i2c_block_data(self.imu_address, 0x0c, 6)
-        self.get_logger().info(str(data))
+        # Range [0-6] for gyroscope 
+        # Range [7-12] for acceleration
+        ########## [ RAW DATA ] ##########
+        gyro_data = self.bus.read_i2c_block_data(self.imu_address, 0x0c, 6)
+        acc_data = self.bus.read_i2c_block_data(self.imu_address, 0x12, 6)
+
+        ########## [ GYROSCOPE ] ##########
+        gx_raw = self.combine(gyro_data[1], gyro_data[0])
+        gy_raw = self.combine(gyro_data[3], gyro_data[2])
+        gz_raw = self.combine(gyro_data[5], gyro_data[4])
+
+        # convert to rad/s 
+        gx = self.convert_deg_to_rad(gx_raw / self.gyroscope_scale_factor)
+        gy = self.convert_deg_to_rad(gy_raw / self.gyroscope_scale_factor)
+        gz = self.convert_deg_to_rad(gz_raw / self.gyroscope_scale_factor)
         
-        pass
+        ########## [ ACCELERATION ] ##########
+        ax_raw = self.combine(acc_data[1], acc_data[0])
+        ay_raw = self.combine(acc_data[3], acc_data[2])
+        az_raw = self.combine(acc_data[5], acc_data[4])
+
+        ax_in_g = ax_raw / self.acceleration_scale_factor
+        ay_in_g = ay_raw / self.acceleration_scale_factor
+        az_in_g = az_raw / self.acceleration_scale_factor
+
+        # convert to m/s²
+        ax = ax_in_g * self.gravity_value
+        ay = ay_in_g * self.gravity_value
+        az = az_in_g * self.gravity_value
+
+
+
+
 
 def main(arg=None):
     rclpy.init(args=arg)
