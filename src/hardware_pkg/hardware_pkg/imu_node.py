@@ -24,9 +24,9 @@ class IMUNode(Node):
 
             ]
         )
-        self.i2c_channel = self.get_parameter('I2C_BUS_CHANNEL')
-        self.imu_address = self.get_parameter('IMU_REGISTER_ADDRESS')
-        self.frequency = self.get_parameter('FREQUENCY')
+        self.i2c_channel = self.get_parameter('I2C_BUS_CHANNEL').value
+        self.imu_address = self.get_parameter('IMU_REGISTER_ADDRESS').value
+        self.frequency = self.get_parameter('FREQUENCY').value
         ########## [ CREATE MAIN OBJECTS ] ##########
         self.bus = smbus2.SMBus(self.i2c_channel)
         ########## [ INITIALIZE IMU SENSOR ] ##########
@@ -47,13 +47,13 @@ class IMUNode(Node):
         return value
 
     def init(self):
-        self.bus.write_byte(self.imu_address,0x7E,0x11)
+        self.bus.write_byte_data(self.imu_address,0x7E,0x11)
         time.sleep(0.1)
-        self.bus.write_byte(self.imu_address,0x7E,0x15)
+        self.bus.write_byte_data(self.imu_address,0x7E,0x15)
         time.sleep(0.1)
 
     def read_data(self):
-        data = self.bus.read_block_data(self.imu_address, 0x0c, 6)
+        data = self.bus.read_i2c_block_data(self.imu_address, 0x0c, 6)
         self.get_logger().info(str(data))
         
         pass
