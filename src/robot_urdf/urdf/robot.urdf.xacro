@@ -44,5 +44,14 @@
     <xacro:ultrasound_sensor name="ultrasound_2" rpy="-0.698 1.5708 0" xyz="0.1494 0.1254 0" />
     <xacro:ultrasound_sensor name="ultrasound_3" rpy="0.698 1.5708 0" xyz="0.1494 -0.1254 0" />
 
+    <!-- ===> IMU <=== -->
+    <xacro:include filename="imu.xacro" />
+    <xacro:imu />
+
+    <!-- ===> HALL SENSOR <=== -->
+    <xacro:include filename="hall_sensor.xacro" />
+    <xacro:hall_sensor name="left" x="-0.0235" y="0.0125" rotate="0.0" />
+    <xacro:hall_sensor name="right" x="0.0235" y="-0.0125" rotate="3.1411" />
+
 
 </robot>

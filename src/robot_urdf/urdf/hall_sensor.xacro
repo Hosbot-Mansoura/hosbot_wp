@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="hall_sensor" params="name x y rotate">
+
+        <link name="${name}_hall_sensor_link">
+            <visual>
+                <geometry>
+                    <box size="0.025 0.01 0.005" />
+                    <material>
+                        <color rgba="1.0 0.0 0.0 1.0" />
+                    </material>
+                </geometry>
+
+            </visual>
+        </link>
+
+        <joint name="${name}_hall_sensor_joint" type="fixed">
+            <parent link="${name}_wheel" />
+            <child link="${name}_hall_sensor_link" />
+            <origin xyz="${x} 0.0 ${y}" rpy="0.0 ${rotate} 0.0" />
+        </joint>
+
+    </xacro:macro>
+</robot>
