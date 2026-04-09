@@ -104,7 +104,7 @@ class IMUNode(Node):
 
         ########## [ CREATE IMU MESSAGE ] ##########
         imu_msg.header.stamp = self.get_clock().now().to_msg()
-        imu_msg.header.frame_id = "imu_link"
+        imu_msg.header.frame_id = "base_link"
         imu_msg.angular_velocity.x = gx
         imu_msg.angular_velocity.y = gy
         imu_msg.angular_velocity.z = gz
