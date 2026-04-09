@@ -4,6 +4,9 @@ from launch.substitutions import ThisLaunchFileDir
 from ament_index_python.packages import get_package_share_directory
 import os
 
+# must publish robot description first
+# ros2 launch launch_pack simulation.launch.py
+
 def generate_launch_description():
     ld = LaunchDescription()
     hardware_package_path = get_package_share_directory('hardware_pkg')
