@@ -6,7 +6,7 @@ def generate_launch_description():
 
     ekf_config = os.path.join(
         os.getenv('HOME'),
-        'your_package/src/your_package/config/ekf_imu.yaml'
+        'hardware_pkg/src/hardware_pkg/config/ekf_imu.yaml'
     )
 
     return LaunchDescription([
