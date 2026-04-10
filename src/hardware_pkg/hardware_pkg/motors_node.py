@@ -11,6 +11,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from gpiozero import PWMOutputDevice, DigitalOutputDevice
+from std_msgs.msg import Int32
 
 
 class MotorsNode(Node):
@@ -45,9 +46,18 @@ class MotorsNode(Node):
         self.Right_PWM_PIN = PWMOutputDevice(self.right_pwm_pin)
         #### [ SUBSCRIBE TO COMMANDS CHANNEL (cmd_vel) ] ####
         self.subscription = self.create_subscription(Twist,'/cmd_vel',self.cmd_to_speed,10)
+        self.publisher_dir_l = self.create_publisher(Int32 , '/motors/left/direction' ,self.publish_dir_left,10)
+        self.publisher_dir_t = self.create_publisher(Int32 , '/motors/right/direction' ,self.publish_dir_right,10)
+
 
         self.get_logger().info("Motors has been initialized successfully")
 
+    def publish_dir_left(self):
+        self.publisher_dir_l.publish(self.Left_DIR_PIN.value)
+
+
+    def publish_dir_right(self):
+        self.publisher_dir_t.publish(self.Right_DIR_PIN.value)
 
     def cmd_to_speed(self, msg:Twist):
         linear_speed = msg.linear.x

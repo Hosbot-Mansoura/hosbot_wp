@@ -14,7 +14,11 @@ encoder_node:
     LEFT_ENCODER_PIN_NUM: 25
     RIGHT_ENCODER_PIN_NUM: 27
     MAGNET_COUNT : 6
-    MODE : "Normal" # [Normal - Calibration] 
+    WHEEL_L : 0.3
+    WHEEL_RADIUS : 0.065
+    UPDATE_TIME : 0.1
+    LEFT_DIR_PIN_NUM : 17
+    RIGHT_DIR_PIN_NUM : 23
 
 imu_node:
   ros__parameters:

@@ -22,6 +22,8 @@
     "workbench.preferredDarkColorTheme": "Visual Studio Dark - C++",
     "editor.mouseWheelZoom": true,
     "cSpell.words": [
+        "dphi",
+        "gpiozero",
         "rclpy",
         "smbus",
         "urdf",

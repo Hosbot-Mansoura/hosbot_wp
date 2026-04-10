@@ -2,16 +2,18 @@
 
 import rclpy
 from rclpy.node import Node
-from gpiozero import DigitalInputDevice 
+from gpiozero import DigitalInputDevice
 from geometry_msgs.msg import Twist 
 from std_msgs.msg import Int32
+import math
 import time
+from nav_msgs.msg import Odometry
 
 
 
 class Encoder:
     def __init__(self , pin, callback):
-        self.sensor = DigitalInputDevice(pin, pull_up=False , bounce_time=0.01)
+        self.sensor = DigitalInputDevice(pin, pull_up=False , bounce_time=0.001)
         self.callback = callback
         self.last_state = 0
         self.sensor.when_activated = self.activated
@@ -39,49 +41,102 @@ class EncoderNode(Node):
                 ('LEFT_ENCODER_PIN_NUM' , rclpy.Parameter.Type.INTEGER),
                 ('RIGHT_ENCODER_PIN_NUM' , rclpy.Parameter.Type.INTEGER),
                 ('MAGNET_COUNT' , rclpy.Parameter.Type.INTEGER),
-                ('MODE' , rclpy.Parameter.Type.STRING),
+                ('WHEEL_L' , rclpy.Parameter.Type.DOUBLE),
+                ('WHEEL_RADIUS' , rclpy.Parameter.Type.DOUBLE),
+                ('UPDATE_TIME' , rclpy.Parameter.Type.DOUBLE),
             ]
         )
         self.left_pin = self.get_parameter('LEFT_ENCODER_PIN_NUM').value
         self.right_pin = self.get_parameter('RIGHT_ENCODER_PIN_NUM').value
         self.magnet_count = self.get_parameter('MAGNET_COUNT').value
-        self.mode = self.get_parameter('MODE').value
+        self.wheel_l = self.get_parameter('WHEEL_L').value
+        self.wheel_rad = self.get_parameter('WHEEL_RADIUS').value
+        self.update_time = self.get_parameter('UPDATE_TIME').value
+        self.l_dir = None
+        self.r_dir = None
+        self.last_time = time.monotonic()
         ##### [ CREATE ENCODER OBJECT ] #####
         self.left_sensor = Encoder(self.left_pin ,self.left_pulse_detected)
         self.right_sensor = Encoder(self.right_pin ,self.right_pulse_detected)
+        self.l_dir_sub = self.create_subscription(Int32,'/motors/left/direction',self.set_left_dir,10)
+        self.r_dir_sub = self.create_subscription(Int32,'/motors/right/direction',self.set_right_dir,10)
+        self.odom_pub = self.create_publisher(Odometry, '/wheel/odometry', 10)
         self.get_logger().info('Encoders has been initialized successfully')
-        self.get_logger().info(self.mode)
-        if self.mode == "Calibration":
-            self.calibrate()
+        self.create_timer(self.update_time ,self.update_odometry)
 
-        
+
 
     def left_pulse_detected(self):
         self.left_pulse_counter += 1
-        self.get_logger().info('Left Magnet Detected: '+ str(self.left_pulse_counter))
 
     def right_pulse_detected(self):
         self.right_pulse_counter += 1
-        self.get_logger().info('Right Magnet Detected: '+str(self.right_pulse_counter))
+
+    def reset(self):
+        self.left_pulse_counter  = 0
+        self.right_pulse_counter = 0
+
+    def set_left_dir(self , data:Int32):
+        self.l_dir = data.data
+
+    def set_right_dir(self , data:Int32):
+        self.r_dir = data.data
 
 
-    def calibrate(self):
-        twist = Twist()
-        twist.linear.x = 0.3
-        cmd_pub = self.create_publisher(Twist, '/cmd_vel' ,10)
-        left_pub = self.create_publisher(Int32, '/calibration/encoder/left' ,10)
-        right_pub = self.create_publisher(Int32, '/calibration/encoder/right' ,10)
-        start_time = self.get_clock().now()
-        while True:
-            time_elapsed = ((self.get_clock().now() - start_time)).nanoseconds / 1e9
-            if time_elapsed >= 30 :
-                break
-            cmd_pub.publish(twist)
-            
-        left_pub.publish(Int32(data = self.left_pulse_counter))
-        right_pub.publish(Int32(data = self.right_pulse_counter))
-        # left_pub.destroy()
-        # right_pub.destroy()
+    def update_odometry(self):
+        if self.r_dir is None or self.l_dir is None:
+            self.reset()
+            self.last_time = time.monotonic()   
+            return
+        ########## [ GET MOTORS DIRECTION ] ##########
+        pR = self.right_pulse_counter if self.r_dir == 1 else self.right_pulse_counter * -1
+        pL = self.left_pulse_counter  if self.l_dir == 1 else self.left_pulse_counter  * -1
+
+        ########## [ RESET PULSE COUNTERS ] ##########
+        self.reset()
+
+        ########## [ GET ROTATE COUNT ] ##########
+        rot_l_count =  pL  / self.magnet_count
+        rot_r_count = pR / self.magnet_count
+        
+        ########## [ GET DELTA ANGULAR ] ##########
+        dphiL = (2 * math.pi) *  rot_l_count # delta angular left
+        dphiR = (2 * math.pi) *  rot_r_count # delta angular right
+
+        ########## [ GET ANGULAR VELOCITY ] ##########
+        current_time = time.monotonic()
+        dt = current_time - self.last_time
+        self.last_time = current_time
+        if dt <=0 : 
+            return
+        wl = dphiL / dt # angular velocity left
+        wr = dphiR / dt # angular velocity right
+
+        ########## [ GET LINEAR VELOCITY ] ##########
+        vL = self.wheel_rad * wl # linear velocity left
+        vR = self.wheel_rad * wr # linear velocity right
+
+        ########## [ GET ROBOT ODOMETRY ] ##########
+        vx = (vR + vL) / 2  # linear velocity for robot
+        wz = (vR - vL ) / self.wheel_l # angular velocity for robot 
+
+        ########## [ PUBLISH ODOMETRY ] ##########
+        odom_msg = Odometry()
+        odom_msg.header.stamp = self.get_clock().now().to_msg()
+        odom_msg.header.frame_id = "odom"
+        odom_msg.child_frame_id = "base_link"
+        odom_msg.twist.twist.linear.x = vx
+        odom_msg.twist.twist.linear.y = 0.0
+        odom_msg.twist.twist.angular.z = wz
+        odom_msg.twist.covariance = [
+            0.05, 0,    0,    0,    0,    0,
+            0,    0.05, 0,    0,    0,    0,
+            0,    0,    9999, 0,    0,    0,
+            0,    0,    0,    9999, 0,    0,
+            0,    0,    0,    0,    9999, 0,
+            0,    0,    0,    0,    0,    0.1
+        ]
+        self.odom_pub.publish(odom_msg)
 
 
 
