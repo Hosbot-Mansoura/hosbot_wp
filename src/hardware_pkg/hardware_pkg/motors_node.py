@@ -46,8 +46,8 @@ class MotorsNode(Node):
         self.Right_PWM_PIN = PWMOutputDevice(self.right_pwm_pin)
         #### [ SUBSCRIBE TO COMMANDS CHANNEL (cmd_vel) ] ####
         self.subscription = self.create_subscription(Twist,'/cmd_vel',self.cmd_to_speed,10)
-        self.publisher_dir_l = self.create_publisher(Int32 , '/motors/left/direction' ,self.publish_dir_left,10)
-        self.publisher_dir_t = self.create_publisher(Int32 , '/motors/right/direction' ,self.publish_dir_right,10)
+        self.publisher_dir_l = self.create_publisher(Int32 , '/motors/left/direction' ,10)
+        self.publisher_dir_t = self.create_publisher(Int32 , '/motors/right/direction' ,10)
 
 
         self.get_logger().info("Motors has been initialized successfully")
