@@ -20,5 +20,11 @@
         }
     },
     "workbench.preferredDarkColorTheme": "Visual Studio Dark - C++",
-    "editor.mouseWheelZoom": true
+    "editor.mouseWheelZoom": true,
+    "cSpell.words": [
+        "rclpy",
+        "smbus",
+        "urdf",
+        "xacro"
+    ]
 }
