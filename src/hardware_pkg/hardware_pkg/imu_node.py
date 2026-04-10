@@ -41,7 +41,9 @@ class IMUNode(Node):
         ########## [ CALIBRATE IMU SENSOR ] ##########
         self.get_logger().info('code:imu-2 please keep robot still for calibration')
         self.calibrate_gyro(samples= 300)
-        self.get_logger().info("code:imu-3 calibration finished")
+        self.get_logger().info("code:imu-3 calibration finished with values")
+        self.get_logger().info("gx_bias: " + str(self.gx_bias) + " gy_bias: " + str(self.gy_bias) + " gz_bias: " + str(self.gz_bias) )
+
         ########## [ DECLARE FREQUENCY ] ##########
         self.get_logger().info("code:imu-3 imu sensor started")
         timer_period = 1 / self.frequency
