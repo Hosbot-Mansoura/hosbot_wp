@@ -1,10 +1,24 @@
 {
-    "cSpell.words": [
-        "gpiozero",
-        "hosbot",
-        "rclpy",
-        "smbus",
-        "urdf",
-        "xacro"
-    ]
+    "window.autoDetectColorScheme": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.semanticHighlighting.enabled": true,
+    "python.analysis.extraPaths": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages",
+        "/home/youssef/hosbot_wp/install/hardware_pkg/lib/python3.12/site-packages",
+        "/home/youssef/hosbot_wp/install/robot_urdf/lib/python3.12/site-packages"
+    ],
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+        "rules": {
+            "variable": "#4FC1FF",
+            "parameter": "#9CDCFE",
+            "property": "#4EC9B0"
+        }
+    },
+    "workbench.preferredDarkColorTheme": "Visual Studio Dark - C++",
+    "editor.mouseWheelZoom": true
 }

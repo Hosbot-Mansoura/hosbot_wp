@@ -6,7 +6,7 @@ def generate_launch_description():
 
     ekf_config = os.path.join(
         os.getenv('HOME'),
-        'hardware_pkg/src/hardware_pkg/config/ekf_params.yaml'
+        'hosbot_wp/src/hardware_pkg/config/ekf_params.yaml'
     )
 
     return LaunchDescription([
