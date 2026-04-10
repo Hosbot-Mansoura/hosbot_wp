@@ -77,8 +77,8 @@ class MotorsNode(Node):
         self.Right_DIR_PIN.on() if vRight_clipped >= 0 else self.Right_DIR_PIN.off()
         self.Right_PWM_PIN.value = abs(vRight_norm)
         
-        self.publisher_dir_l.publish(self.Left_DIR_PIN.value)
-        self.publisher_dir_r.publish(self.Right_DIR_PIN.value)
+        self.publisher_dir_l.publish(Int32(data = self.Left_DIR_PIN.value))
+        self.publisher_dir_r.publish(Int32(data = self.Right_DIR_PIN.value))
 
 
     
