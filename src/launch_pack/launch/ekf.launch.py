@@ -22,7 +22,6 @@ def generate_launch_description():
         parameters=ekf_config_files
     )
 
-
     imu_node = Node(
         package='hardware_pkg',
         executable='imu_node',
@@ -31,6 +30,24 @@ def generate_launch_description():
         output = 'screen'
     )
 
+    encoder_node = Node(
+        package='hardware_pkg',
+        executable='encoder_node',
+        name = "encoder_node",
+        parameters=imu_config_files,
+        output = 'screen'
+    )
+
+    motors_node = Node(
+        package='hardware_pkg',
+        executable='motors_node',
+        name = "motors_node",
+        parameters=imu_config_files,
+        output = 'screen'
+    )
+
     ld.add_action(imu_node)
     ld.add_action(ekf_node)
+    ld.add_action(encoder_node)
+    ld.add_action(motors_node)
     return ld
