@@ -47,17 +47,11 @@ class MotorsNode(Node):
         #### [ SUBSCRIBE TO COMMANDS CHANNEL (cmd_vel) ] ####
         self.subscription = self.create_subscription(Twist,'/cmd_vel',self.cmd_to_speed,10)
         self.publisher_dir_l = self.create_publisher(Int32 , '/motors/left/direction' ,10)
-        self.publisher_dir_t = self.create_publisher(Int32 , '/motors/right/direction' ,10)
+        self.publisher_dir_r = self.create_publisher(Int32 , '/motors/right/direction' ,10)
 
 
         self.get_logger().info("Motors has been initialized successfully")
 
-    def publish_dir_left(self):
-        self.publisher_dir_l.publish(self.Left_DIR_PIN.value)
-
-
-    def publish_dir_right(self):
-        self.publisher_dir_t.publish(self.Right_DIR_PIN.value)
 
     def cmd_to_speed(self, msg:Twist):
         linear_speed = msg.linear.x
@@ -82,6 +76,11 @@ class MotorsNode(Node):
         # RIGHT MOTOR
         self.Right_DIR_PIN.on() if vRight_clipped >= 0 else self.Right_DIR_PIN.off()
         self.Right_PWM_PIN.value = abs(vRight_norm)
+        
+        self.publisher_dir_l.publish(self.Left_DIR_PIN.value)
+        self.publisher_dir_r.publish(self.Right_DIR_PIN.value)
+
+
     
     def stop(self):
         self.Left_DIR_PIN.off()
