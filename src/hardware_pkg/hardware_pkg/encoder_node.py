@@ -51,7 +51,7 @@ class EncoderNode(Node):
         self.magnet_count = self.get_parameter('MAGNET_COUNT').value
         self.wheel_l = self.get_parameter('WHEEL_L').value
         self.wheel_rad = self.get_parameter('WHEEL_RADIUS').value
-        self.update_time = self.get_parameter('UPDATE_TIME').value
+        self.update_time = self.get_parameter('UPDATE_TIME').value # pulse rate=v/2πr​×N N must be 2-5
         self.l_dir = None
         self.r_dir = None
         self.last_time = time.monotonic()
