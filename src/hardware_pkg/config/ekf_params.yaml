@@ -28,9 +28,3 @@ ekf_filter_node:
 
     imu0_queue_size: 10
     imu0_nodelay: false
-
-#ros2 topic echo /odometry/filtered \
-# --field pose.pose.position.x \
-# --field pose.pose.position.y \
-# --field twist.twist.linear.x \
-# --field twist.twist.angular.z
