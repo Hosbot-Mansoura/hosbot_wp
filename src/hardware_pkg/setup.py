@@ -12,6 +12,8 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/'+ package_name +'/config', ['config/params.yaml']),
         ('share/'+ package_name +'/config', ['config/ekf_params.yaml']),
+        ('share/'+ package_name +'/config', ['config/map_params.yaml']),
+
 
     ],
     install_requires=['setuptools'],
