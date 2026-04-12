@@ -9,8 +9,6 @@ def generate_launch_description():
     ld = LaunchDescription()
     hardware_package_path = get_package_share_directory('hardware_pkg')
     ekf_config_files = [os.path.join(hardware_package_path,'config','ekf_params.yaml')]
-    imu_config_files = [os.path.join(hardware_package_path,'config','params.yaml')]
-
 
     ekf_node = Node(
         package='robot_localization',

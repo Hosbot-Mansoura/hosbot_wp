@@ -31,7 +31,7 @@
         </link>
 
         <!-- Joint-->
-        <joint name="${name}_joint" type="continuous">
+        <joint name="${name}_joint" type="fixed">
             <parent link="robot_base_link" />
             <child link="${name}" />
             <origin xyz="0 ${y} -${robot_base_hight /2} " rpy="1.5708 0 0" /> <!-- -0.061-->

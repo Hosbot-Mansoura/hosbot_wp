@@ -9,10 +9,7 @@
                 <geometry>
                     <cylinder radius="0.2" length="${robot_base_hight}" />
                 </geometry>
-                <material name="colors_grayd">
-                    <color rgba="0.66 0.66 0.66 0.75" />
-
-                </material>
+                <material name="colors_gray"/>
             </visual>
         </link>
 
