@@ -13,15 +13,22 @@ from nav_msgs.msg import Odometry
 
 class Encoder:
     def __init__(self , pin, callback):
-        self.sensor = DigitalInputDevice(pin, pull_up=False , bounce_time=0.001)
+        self.sensor = DigitalInputDevice(pin, pull_up=False , bounce_time=0.01)
         self.callback = callback
+        self.last_pulse_time = 0.0
+        self.min_pulse_interval = 0.003
         self.last_state = 0
         self.sensor.when_activated = self.activated
         self.sensor.when_deactivated = self.deactivated
 
     def activated(self):
+        now = time.monotonic()
+        if now - self.last_pulse_time < self.min_pulse_interval:
+            return
         if self.last_state != 1:
             self.callback() 
+            self.last_pulse_time = now
+            
         self.last_state = 1
 
     def deactivated(self):
@@ -65,7 +72,6 @@ class EncoderNode(Node):
         self.create_timer(self.update_time ,self.update_odometry)
 
 
-
     def left_pulse_detected(self):
         self.left_pulse_counter += 1
 
@@ -82,8 +88,18 @@ class EncoderNode(Node):
     def set_right_dir(self , data:Int32):
         self.r_dir = data.data
 
+    def publish_zero_odom(self):
+        odom_msg = Odometry()
+        odom_msg.header.stamp = self.get_clock().now().to_msg()
+        odom_msg.header.frame_id = "odom"
+        odom_msg.child_frame_id = "base_link"
+        odom_msg.twist.twist.linear.x = 0.0
+        odom_msg.twist.twist.linear.y = 0.0
+        odom_msg.twist.twist.angular.z = 0.0
+        self.odom_pub.publish(odom_msg)
 
     def update_odometry(self):
+        self.get_logger().info(f"raw L:{self.left_pulse_counter} raw R:{self.right_pulse_counter} l_dir:{self.l_dir} r_dir:{self.r_dir}")
         if self.r_dir is None or self.l_dir is None:
             self.reset()
             self.last_time = time.monotonic()   
@@ -92,11 +108,17 @@ class EncoderNode(Node):
         pR = self.right_pulse_counter if self.r_dir == 1 else self.right_pulse_counter * -1
         pL = self.left_pulse_counter  if self.l_dir == 1 else self.left_pulse_counter  * -1
 
+        if pR == 0 and pL == 0:
+            self.reset()
+            self.last_time = time.monotonic()
+            self.publish_zero_odom()
+            return
+
         ########## [ RESET PULSE COUNTERS ] ##########
         self.reset()
 
         ########## [ GET ROTATE COUNT ] ##########
-        rot_l_count =  pL  / self.magnet_count
+        rot_l_count = pL / self.magnet_count
         rot_r_count = pR / self.magnet_count
         
         ########## [ GET DELTA ANGULAR ] ##########
@@ -119,6 +141,9 @@ class EncoderNode(Node):
         ########## [ GET ROBOT ODOMETRY ] ##########
         vx = (vR + vL) / 2  # linear velocity for robot
         wz = (vR - vL ) / self.wheel_l # angular velocity for robot 
+
+        vx  = 0.0 if abs(vx) < 1e-3 else vx
+        wz  = 0.0 if abs(wz) < 1e-3 else wz
 
         ########## [ PUBLISH ODOMETRY ] ##########
         odom_msg = Odometry()
