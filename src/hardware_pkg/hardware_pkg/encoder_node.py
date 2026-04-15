@@ -68,11 +68,9 @@ class EncoderNode(Node):
 
     def left_pulse_detected(self):
         self.left_pulse_counter += 1
-        self.get_logger().info(f"Left pulse detected. Total count: {self.left_pulse_counter}")
 
     def right_pulse_detected(self):
         self.right_pulse_counter += 1
-        self.get_logger().info(f"Right pulse detected. Total count: {self.right_pulse_counter}")
 
     def reset(self):
         self.left_pulse_counter  = 0
