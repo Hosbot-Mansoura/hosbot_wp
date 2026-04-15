@@ -168,9 +168,9 @@ class IMUNode(Node):
         imu_msg.angular_velocity.x = gx
         imu_msg.angular_velocity.y = gy 
         imu_msg.angular_velocity.z = smoothed_gz # IMU main function 
-        imu_msg.linear_acceleration.x = ax - self.gravity_value
-        imu_msg.linear_acceleration.y = ay - self.gravity_value
-        imu_msg.linear_acceleration.z = az - self.gravity_value
+        imu_msg.linear_acceleration.x = ax
+        imu_msg.linear_acceleration.y = ay 
+        imu_msg.linear_acceleration.z = az
         imu_msg.angular_velocity_covariance = [0.02,0,0,0,0.02,0,0,0,0.02]
         imu_msg.linear_acceleration_covariance = [0.1,0,0,0,0.1,0,0,0,0.1]
 
