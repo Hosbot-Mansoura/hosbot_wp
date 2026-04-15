@@ -22,11 +22,13 @@
     "workbench.preferredDarkColorTheme": "Visual Studio Dark - C++",
     "editor.mouseWheelZoom": true,
     "cSpell.words": [
+        "deadband",
         "dphi",
         "gpiozero",
         "ldlidar",
         "rclpy",
         "smbus",
+        "thresholding",
         "urdf",
         "xacro"
     ]
