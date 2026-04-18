@@ -9,8 +9,8 @@ class WASDTeleop(Node):
         super().__init__('wasd_teleop')
         self.pub = self.create_publisher(Twist, '/cmd_vel', 10)
 
-        self.linear_speed = 0.2
-        self.angular_speed = 0.5
+        self.linear_speed = 0.1
+        self.angular_speed = 0.4
 
         self.keys = {'w':0, 'a':0, 's':0, 'd':0}
         self.timeout = 0.15

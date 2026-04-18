@@ -69,14 +69,17 @@ class EncoderNode(Node):
         self.r_dir_sub = self.create_subscription(Int32,'/motors/right/direction',self.set_right_dir,10)
         self.odom_pub = self.create_publisher(Odometry, '/wheel/odometry', 10)
         self.get_logger().info('Encoders has been initialized successfully')
-        self.create_timer(self.update_time ,self.update_odometry)
+        # self.create_timer(self.update_time ,self.update_odometry)
 
 
     def left_pulse_detected(self):
         self.left_pulse_counter += 1
+        self.get_logger().info('left pulses = '+str(self.left_pulse_counter))
 
     def right_pulse_detected(self):
         self.right_pulse_counter += 1
+        self.get_logger().info('right pulses = '+str(self.right_pulse_counter))
+
 
     def reset(self):
         self.left_pulse_counter  = 0
@@ -99,7 +102,6 @@ class EncoderNode(Node):
         self.odom_pub.publish(odom_msg)
 
     def update_odometry(self):
-        self.get_logger().info(f"raw L:{self.left_pulse_counter} raw R:{self.right_pulse_counter} l_dir:{self.l_dir} r_dir:{self.r_dir}")
         if self.r_dir is None or self.l_dir is None:
             self.reset()
             self.last_time = time.monotonic()   
