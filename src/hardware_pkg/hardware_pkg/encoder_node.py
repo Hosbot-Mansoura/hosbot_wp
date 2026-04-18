@@ -42,6 +42,7 @@ class EncoderNode(Node):
         ##### [ DECLARE MAIN PARAMETERS ] #####
         self.left_pulse_counter = 0
         self.right_pulse_counter = 0
+        self.total_distance = 0.0
         self.declare_parameters(
             namespace='',
             parameters=[
@@ -65,31 +66,33 @@ class EncoderNode(Node):
         ##### [ CREATE ENCODER OBJECT ] #####
         self.left_sensor = Encoder(self.left_pin ,self.left_pulse_detected)
         self.right_sensor = Encoder(self.right_pin ,self.right_pulse_detected)
-        self.l_dir_sub = self.create_subscription(Int32,'/motors/left/direction',self.set_left_dir,10)
-        self.r_dir_sub = self.create_subscription(Int32,'/motors/right/direction',self.set_right_dir,10)
         self.odom_pub = self.create_publisher(Odometry, '/wheel/odometry', 10)
         self.get_logger().info('Encoders has been initialized successfully')
-        # self.create_timer(self.update_time ,self.update_odometry)
+        self.create_timer(self.update_time ,self.update_odometry)
+        time.sleep(1.0) # wait for 1 second to ensure everything is set up
+        self.run_motors()
+
+    def run_motors(self):
+        pub = self.create_publisher(Twist, '/cmd_vel', 10)
+        twist_msg = Twist()
+        twist_msg.linear.x = 0.1
+        twist_msg.angular.z = 0.0
+        pub.publish(twist_msg)
 
 
     def left_pulse_detected(self):
         self.left_pulse_counter += 1
-        self.get_logger().info('left pulses = '+str(self.left_pulse_counter))
 
     def right_pulse_detected(self):
         self.right_pulse_counter += 1
-        self.get_logger().info('right pulses = '+str(self.right_pulse_counter))
-
 
     def reset(self):
         self.left_pulse_counter  = 0
         self.right_pulse_counter = 0
 
-    def set_left_dir(self , data:Int32):
-        self.l_dir = data.data
+    def reset_distance(self):
+        self.total_distance = 0.0
 
-    def set_right_dir(self , data:Int32):
-        self.r_dir = data.data
 
     def publish_zero_odom(self):
         odom_msg = Odometry()
@@ -144,6 +147,8 @@ class EncoderNode(Node):
         vx = (vR + vL) / 2  # linear velocity for robot
         wz = (vR - vL ) / self.wheel_l # angular velocity for robot 
 
+        self.total_distance += abs(vx) * dt
+
         vx  = 0.0 if abs(vx) < 1e-3 else vx
         wz  = 0.0 if abs(wz) < 1e-3 else wz
 
@@ -163,6 +168,7 @@ class EncoderNode(Node):
             0,    0,    0,    0,    9999, 0,
             0,    0,    0,    0,    0,    0.1
         ]
+        self.get_logger().info(f"distance = {self.total_distance:.4f} m")
         self.odom_pub.publish(odom_msg)
 
 
