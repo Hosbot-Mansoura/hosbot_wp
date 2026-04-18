@@ -10,7 +10,7 @@ slam_toolbox:
     mode: mapping
     use_sim_time: false
 
-    resolution: 0.05
+    resolution: 0.03
     max_laser_range: 12.0
 
     minimum_time_interval: 0.1
@@ -21,12 +21,12 @@ slam_toolbox:
     enable_interactive_mode: false
 
     transform_publish_period: 0.02
-    map_update_interval: 2.0
+    map_update_interval: 0.5
 
     use_scan_matching: true
     use_scan_barycenter: true
 
-    minimum_travel_distance: 0.08
-    minimum_travel_heading: 0.08
+    minimum_travel_distance: 0.04
+    minimum_travel_heading: 0.04
 
     scan_buffer_size: 10
