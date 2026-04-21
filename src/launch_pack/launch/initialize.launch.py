@@ -55,7 +55,7 @@ def generate_launch_description():
       launch_description_source=PythonLaunchDescriptionSource([
           get_package_share_directory('ldlidar_ros2'),
           '/launch/ld06.launch.py'
-      ])
+      ]),
     )
     
     ld.add_action(state_publisher_node)
