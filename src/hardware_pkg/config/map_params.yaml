@@ -2,31 +2,28 @@ slam_toolbox:
   ros__parameters:
     solver_plugin: solver_plugins::CeresSolver
     ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
-
     odom_frame: odom
     map_frame: map
     base_frame: base_link
     scan_topic: /scan
     mode: mapping
     use_sim_time: false
-
-    resolution: 0.03
+    do_loop_closing: true
+    resolution: 0.025
     max_laser_range: 12.0
-
     minimum_time_interval: 0.1
-
     transform_timeout: 0.3
     tf_buffer_duration: 30.0
     stack_size_to_use: 40000000
     enable_interactive_mode: false
-
     transform_publish_period: 0.02
     map_update_interval: 0.5
-
+    distance_variance_penalty: 1.5
+    angle_variance_penalty: 2.0
+    min_pass_through: 2
+    occupancy_threshold: 0.15
     use_scan_matching: true
     use_scan_barycenter: true
-
-    minimum_travel_distance: 0.04
-    minimum_travel_heading: 0.04
-
+    minimum_travel_distance: 0.06
+    minimum_travel_heading: 0.06
     scan_buffer_size: 10

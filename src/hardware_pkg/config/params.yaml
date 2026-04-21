@@ -16,7 +16,7 @@ encoder_node:
     MAGNET_COUNT : 6
     WHEEL_L : 0.3
     WHEEL_RADIUS : 0.0325
-    UPDATE_TIME : 0.05
+    UPDATE_TIME : 0.5
     LEFT_DIR_PIN_NUM : 17
     RIGHT_DIR_PIN_NUM : 23
 

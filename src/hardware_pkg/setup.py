@@ -13,6 +13,7 @@ setup(
         ('share/'+ package_name +'/config', ['config/params.yaml']),
         ('share/'+ package_name +'/config', ['config/ekf_params.yaml']),
         ('share/'+ package_name +'/config', ['config/map_params.yaml']),
+        ('share/'+ package_name +'/config', ['config/nav_params.yaml']),
 
 
     ],
