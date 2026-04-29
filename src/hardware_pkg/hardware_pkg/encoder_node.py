@@ -62,6 +62,9 @@ class EncoderNode(Node):
         self.l_dir = None
         self.r_dir = None
         self.last_time = time.monotonic()
+        self.x_pose = 0.0
+        self.y_pose = 0.0
+        self.yaw = 0.0
         ##### [ CREATE ENCODER OBJECT ] #####
         self.left_sensor = Encoder(self.left_pin ,self.left_pulse_detected)
         self.right_sensor = Encoder(self.right_pin ,self.right_pulse_detected)
@@ -96,6 +99,28 @@ class EncoderNode(Node):
         odom_msg.twist.twist.linear.x = 0.0
         odom_msg.twist.twist.linear.y = 0.0
         odom_msg.twist.twist.angular.z = 0.0
+        odom_msg.pose.pose.position.x = self.x_pose
+        odom_msg.pose.pose.position.y = self.y_pose
+        odom_msg.pose.pose.position.z = 0.0
+        odom_msg.pose.pose.orientation.z = math.sin(self.yaw / 2.0)
+        odom_msg.pose.pose.orientation.w = math.cos(self.yaw / 2.0)
+
+        odom_msg.pose.covariance = [
+            0.05, 0,    0,    0,    0,    0,
+            0,    0.05, 0,    0,    0,    0,
+            0,    0,    9999, 0,    0,    0,
+            0,    0,    0,    9999, 0,    0,
+            0,    0,    0,    0,    9999, 0,
+            0,    0,    0,    0,    0,    0.1
+        ]
+        odom_msg.twist.covariance = [
+            0.05, 0,    0,    0,    0,    0,
+            0,    0.05, 0,    0,    0,    0,
+            0,    0,    9999, 0,    0,    0,
+            0,    0,    0,    9999, 0,    0,
+            0,    0,    0,    0,    9999, 0,
+            0,    0,    0,    0,    0,    0.1
+        ]
         self.odom_pub.publish(odom_msg)
 
     def update_odometry(self):
@@ -141,6 +166,15 @@ class EncoderNode(Node):
         vx = (vR + vL) / 2  # linear velocity for robot
         wz = (vR - vL ) / self.wheel_l # angular velocity for robot 
 
+        ########## [ CALCULATRE ROBOTE POSE ] ##########
+        ds = vx * dt
+        dyaw = wz * dt
+
+        self.x_pose += ds * math.cos(self.yaw + dyaw / 2.0)
+        self.y_pose += ds * math.sin(self.yaw + dyaw / 2.0)
+        self.yaw += dyaw
+        self.yaw = math.atan2(math.sin(self.yaw) , math.cos(self.yaw))
+
         vx  = 0.0 if abs(vx) < 1e-3 else vx
         wz  = 0.0 if abs(wz) < 1e-3 else wz
 
@@ -149,9 +183,22 @@ class EncoderNode(Node):
         odom_msg.header.stamp = self.get_clock().now().to_msg()
         odom_msg.header.frame_id = "odom"
         odom_msg.child_frame_id = "base_link"
+        odom_msg.pose.pose.position.x = self.x_pose
+        odom_msg.pose.pose.position.y = self.y_pose
+        odom_msg.pose.pose.position.z = 0.0
+        odom_msg.pose.pose.orientation.z = math.sin(self.yaw / 2.0)
+        odom_msg.pose.pose.orientation.w = math.cos(self.yaw / 2.0)
         odom_msg.twist.twist.linear.x = vx
         odom_msg.twist.twist.linear.y = 0.0
         odom_msg.twist.twist.angular.z = wz
+        odom_msg.pose.covariance = [
+            0.05, 0,    0,    0,    0,    0,
+            0,    0.05, 0,    0,    0,    0,
+            0,    0,    9999, 0,    0,    0,
+            0,    0,    0,    9999, 0,    0,
+            0,    0,    0,    0,    9999, 0,
+            0,    0,    0,    0,    0,    0.1
+        ]
         odom_msg.twist.covariance = [
             0.05, 0,    0,    0,    0,    0,
             0,    0.05, 0,    0,    0,    0,

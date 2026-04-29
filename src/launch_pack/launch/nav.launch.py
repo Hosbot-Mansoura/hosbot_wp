@@ -16,12 +16,9 @@ def generate_launch_description():
 
     use_sim_time = False
     map_yaml_file = LaunchConfiguration('map')
-    run_rviz = LaunchConfiguration('run_rviz')
 
+    map_file = "/home/hosbot/hosbot_wp/maps/res_map.yaml"
 
-    
-    nav2_bringup_dir = get_package_share_directory('nav2_bringup')
-    default_rviz_config = os.path.join(nav2_bringup_dir, 'rviz', 'nav2_default_view.rviz')
 
     lifecycle_nodes_localization = ['map_server' , 'amcl']
     lifecycle_nodes_navigation = [
@@ -29,6 +26,7 @@ def generate_launch_description():
         'planner_server',
         'smoother_server',
         'behavior_server',
+        'velocity_smoother',
         'bt_navigator',
         'waypoint_follower'
     ]
@@ -59,7 +57,9 @@ def generate_launch_description():
         executable='controller_server',
         name='controller_server',
         output='screen',
-        parameters=[params_file]
+        parameters=[params_file],
+        remappings=[('cmd_vel', 'cmd_vel_nav')]
+
     )
 
     planner_node = Node(
@@ -83,7 +83,8 @@ def generate_launch_description():
         executable='behavior_server',
         name='behavior_server',
         output='screen',
-        parameters=[params_file]
+        parameters=[params_file],
+        remappings=[('cmd_vel', 'cmd_vel_nav')]
     )
 
     bt_navigator_node = Node(
@@ -126,17 +127,21 @@ def generate_launch_description():
         }]
     )
 
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
+    velocity_smoother_node = Node(
+        package='nav2_velocity_smoother',
+        executable='velocity_smoother',
+        name='velocity_smoother',
         output='screen',
-        arguments=['-d', default_rviz_config],
-        parameters=[{'use_sim_time': use_sim_time}],
-        condition=IfCondition(run_rviz)
-    )
+        parameters=[params_file],
+        remappings=[
+            ('cmd_vel', 'cmd_vel_nav'),
+            ('cmd_vel_smoothed', 'cmd_vel')
+        ]
+)
+
+
     launch.add_action(DeclareLaunchArgument('run_rviz',default_value='true'))
-    launch.add_action(DeclareLaunchArgument('map',default_value='/home/hosbot/hosbot_wp/maps/res_map.yaml'))
+    launch.add_action(DeclareLaunchArgument('map',default_value=map_file))
     launch.add_action(map_saver_node)
     launch.add_action(amcl_node)
     launch.add_action(controller_node)
@@ -147,5 +152,5 @@ def generate_launch_description():
     launch.add_action(waypoint_follower_node)
     launch.add_action(lifecycle_localization_node)
     launch.add_action(lifecycle_navigation_node)
-    launch.add_action(rviz_node)
+    launch.add_action(velocity_smoother_node)
     return launch
