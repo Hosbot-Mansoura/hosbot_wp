@@ -26,3 +26,11 @@ imu_node:
     I2C_BUS_CHANNEL : 1
     IMU_REGISTER_ADDRESS : 0x69
     FREQUENCY : 50 # Hz
+
+ultrasound_node:
+  ros__parameters:
+    PORT: "/dev/ttyAMA0"
+    BAUDRATE: 9600
+    MIN_RANGE: 0.25
+    MAX_RANGE: 2.0
+    FOV: 0.35

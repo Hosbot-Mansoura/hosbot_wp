@@ -34,6 +34,8 @@
         "smbus",
         "thresholding",
         "urdf",
-        "xacro"
+        "xacro",
+        "BAUDRATE",
+        "UART"
     ]
 }

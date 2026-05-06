@@ -50,18 +50,30 @@ def generate_launch_description():
         output = 'screen'
     )
 
+    ultrasonic_node = Node(
+        package='hardware_pkg',
+        executable='ultrasound_node',
+        name = "ultrasound_node",
+        parameters=hardware_config_files,
+        output = 'screen'
+    )
+
 
     ldlidar_launch = IncludeLaunchDescription(
       launch_description_source=PythonLaunchDescriptionSource([
           get_package_share_directory('ldlidar_ros2'),
           '/launch/ld06.launch.py'
       ]),
+      launch_arguments={
+          "enable_angle_crop_func": "true"
+      }.items()
     )
     
     ld.add_action(state_publisher_node)
     ld.add_action(motors_node)
     ld.add_action(encoder_node)
     ld.add_action(imu_node)
+    ld.add_action(ultrasonic_node)
     ld.add_action(ldlidar_launch)
     return ld
 

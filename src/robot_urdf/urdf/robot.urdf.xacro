@@ -40,10 +40,10 @@
     <!-- all degrees used in radian [ theta * (3.14[py] / 180) ]-->
     <!-- x = r * cos(theta) || y = r * sin(theta) -->
     <xacro:include filename="ultrasound_sensor.xacro" />
-    <xacro:ultrasound_sensor name="ultrasound_1" rpy="0 1.5708 0" xyz="0.1951 0 0" />
-    <xacro:ultrasound_sensor name="ultrasound_2" rpy="-0.698 1.5708 0" xyz="0.1494 0.1254 0" />
-    <xacro:ultrasound_sensor name="ultrasound_3" rpy="0.698 1.5708 0" xyz="0.1494 -0.1254 0" />
-
+    <xacro:ultrasound_sensor name="ultrasound_2" rpy="0 0 0" xyz="0.1951 0 0" />
+    <xacro:ultrasound_sensor name="ultrasound_1" rpy="0 0 0.698" xyz="0.1494 0.1254 0" />
+    <xacro:ultrasound_sensor name="ultrasound_3" rpy="0 0 -0.698" xyz="0.1494 -0.1254 0" />
+    
     <!-- ===> IMU <=== -->
     <xacro:include filename="imu.xacro" />
     <xacro:imu />

@@ -35,7 +35,8 @@ setup(
             "encoder_node = hardware_pkg.encoder_node:main",
             "calibrate_motors_node = hardware_pkg.calibrate_motors_node:main",
             "imu_node = hardware_pkg.imu_node:main",
-            "auto_map_node = hardware_pkg.auto_map:main"
+            "auto_map_node = hardware_pkg.auto_map:main",
+            "ultrasound_node = hardware_pkg.ultrasound_node:main"
         ],
     },
 )
